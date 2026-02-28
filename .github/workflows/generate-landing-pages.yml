@@ -20,6 +20,7 @@ jobs:
       LANDING_PAGE_TOKEN: ${{ secrets.LANDING_PAGE_TOKEN }}
       SITE_URL: ${{ vars.SITE_URL }}
       LANDING_PAGE_LIMIT: ${{ vars.LANDING_PAGE_LIMIT }}
+      LANDING_PAGE_IMAGE_BASE_URL: ${{ vars.LANDING_PAGE_IMAGE_BASE_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,11 +45,13 @@ jobs:
         run: |
           EFFECTIVE_SITE_URL="${SITE_URL:-https://discor.com.ar}"
           EFFECTIVE_LIMIT="${LANDING_PAGE_LIMIT:-100}"
+          EFFECTIVE_IMAGE_BASE_URL="${LANDING_PAGE_IMAGE_BASE_URL:-https://imagenes.discor.com.ar}"
 
           node scripts/generate-landing-pages.mjs \
             --source api \
             --api-base-url "$LANDING_PAGE_API_BASE_URL" \
             --site-url "$EFFECTIVE_SITE_URL" \
+            --image-base-url "$EFFECTIVE_IMAGE_BASE_URL" \
             --limit "$EFFECTIVE_LIMIT"
 
       - name: Commit and push generated pages

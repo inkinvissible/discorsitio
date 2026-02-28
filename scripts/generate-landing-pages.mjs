@@ -29,6 +29,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const source = resolveSource(args);
   const siteUrl = trimTrailingSlash(args.siteUrl ?? process.env.SITE_URL ?? DEFAULT_SITE_URL);
+  const imageBaseUrl = trimTrailingSlash(args.imageBaseUrl ?? process.env.LANDING_PAGE_IMAGE_BASE_URL ?? siteUrl);
 
   if (source === "api" && args.output) {
     throw new Error("--output is only valid for file source mode.");
@@ -64,6 +65,7 @@ async function main() {
   for (const product of products) {
     const pageData = mapProductToTemplateData(product, {
       baseUrl: siteUrl,
+      imageBaseUrl,
       outputOverride: args.output,
       usedFileNames
     });
@@ -131,6 +133,8 @@ function parseArgs(rawArgs) {
       options.apiPath = value;
     } else if (key === "api-token") {
       options.apiToken = value;
+    } else if (key === "image-base-url") {
+      options.imageBaseUrl = value;
     } else if (key === "limit") {
       options.limit = parsePositiveInteger(value, "limit");
     } else if (key === "max-pages") {
@@ -340,7 +344,7 @@ function normalizeProducts(input) {
   return [];
 }
 
-function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNames }) {
+function mapProductToTemplateData(product, { baseUrl, imageBaseUrl, outputOverride, usedFileNames }) {
   const productName = pickLocaleText(product.name, "Producto sin nombre");
   const productDescription = pickLocaleText(product.description, "Sin descripción disponible.");
   const sku = cleanText(product.sku, "N/A");
@@ -352,7 +356,7 @@ function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNa
   const preferredFileName = outputOverride ?? `${preferredSlug}.html`;
   const fileName = ensureUniqueFileName(preferredFileName, usedFileNames, product.id);
   const canonicalUrl = `${baseUrl}/products/${fileName}`;
-  const productImageUrl = resolveAbsoluteUrl(resolveImageCandidate(product), baseUrl);
+  const productImageUrl = resolveAbsoluteUrl(resolveImageCandidate(product), imageBaseUrl ?? baseUrl);
   const productImageAlt = cleanText(product.image?.alt, `Imagen de ${productName}`);
   const wholesaleCtaUrl = cleanText(product.wholesaleCtaUrl, "https://clientes.discor.com.ar");
   const wholesaleCtaText = cleanText(product.wholesaleCtaText, "Acceder al Área Clientes");
