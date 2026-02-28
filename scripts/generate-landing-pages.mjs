@@ -411,9 +411,9 @@ function mapProductToTemplateData(product, { baseUrl, imageBaseUrl, outputOverri
 
   const noImageSvg = `<div class="no-image"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span>Sin imagen disponible</span></div>`;
   const hasRealImage = true; // always attempt: onerror handles missing images
-  const onerrorHandler = "this.style.display=&quot;none&quot;;this.parentNode.querySelector(&quot;.no-image&quot;).style.display=&quot;flex&quot;";
+  const imgOnerror = escapeAttr("this.style.display='none';this.parentNode.querySelector('.no-image').style.display='flex'");
   const productImageHtml = hasRealImage
-    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="${onerrorHandler}">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" style="display:none">')}`
+    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="${imgOnerror}">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" style="display:none">')}`
     : noImageSvg;
   const attributesSection = attributePills.length > 0
     ? `<div class="attributes">${attributePills.join("\n        ")}</div>`
@@ -594,6 +594,8 @@ function renderProductIndexPage(pages, siteUrl) {
 
   const vehicleBrands = Object.keys(brandModels).sort((a, b) => a.localeCompare(b, "es"));
 
+  const cardImgOnerror = escapeAttr("this.parentNode.style.display='none'");
+
   const cards = sorted.map((page) => {
     const compatJson = escapeAttr(JSON.stringify(page.vehicleCompat ?? []));
     const imgUrl = page.imageUrl ?? "";
@@ -603,7 +605,7 @@ function renderProductIndexPage(pages, siteUrl) {
       `data-brand="${escapeAttr(page.brand)}"`,
       `data-category="${escapeAttr(page.category)}"`,
       `data-compat="${compatJson}">`,
-      `<div class="card-img"><img src="${escapeAttr(imgUrl)}" alt="${escapeAttr(page.title)}" loading="lazy" onerror="this.parentNode.style.display=&quot;none&quot;"></div>`,
+      `<div class="card-img"><img src="${escapeAttr(imgUrl)}" alt="${escapeAttr(page.title)}" loading="lazy" onerror="${cardImgOnerror}"></div>`,
       `<p class="sku">SKU ${escapeHtml(page.sku)}</p>`,
       `<h2><a href="./${escapeAttr(page.fileName)}">${escapeHtml(page.title)}</a></h2>`,
       `<p class="desc">${escapeHtml(page.description)}</p>`,
