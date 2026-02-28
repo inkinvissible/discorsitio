@@ -346,7 +346,9 @@ function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNa
   const sku = cleanText(product.sku, "N/A");
   const brand = pickLocaleText(product.brand?.name, "Sin marca");
   const category = pickLocaleText(product.category?.name, "Sin categoría");
-  const preferredSlug = slugify(`${productName}-${sku}`) || slugify(product.id) || "producto";
+  const compatibilities = Array.isArray(product.compatibilities) ? product.compatibilities : [];
+  const attributes = product.attributes ?? {};
+  const preferredSlug = buildSeoSlug(productName, sku, compatibilities) || slugify(product.id) || "producto";
   const preferredFileName = outputOverride ?? `${preferredSlug}.html`;
   const fileName = ensureUniqueFileName(preferredFileName, usedFileNames, product.id);
   const canonicalUrl = `${baseUrl}/products/${fileName}`;
@@ -354,8 +356,6 @@ function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNa
   const productImageAlt = cleanText(product.image?.alt, `Imagen de ${productName}`);
   const wholesaleCtaUrl = cleanText(product.wholesaleCtaUrl, "https://clientes.discor.com.ar");
   const wholesaleCtaText = cleanText(product.wholesaleCtaText, "Acceder al Área Clientes");
-  const compatibilities = Array.isArray(product.compatibilities) ? product.compatibilities : [];
-  const attributes = product.attributes ?? {};
   const currentYear = new Date().getUTCFullYear();
 
   const brands = new Set();
@@ -405,8 +405,17 @@ function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNa
     return `<span class="attribute-pill">${escapeHtml(String(key))}: ${escapeHtml(String(value))}</span>`;
   });
 
-  const seoTitle = `${productName} | ${brand} | DisCor`;
-  const seoDescription = buildSeoDescription(productDescription, sku, category);
+  const noImageSvg = `<div class="no-image"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span>Sin imagen disponible</span></div>`;
+  const hasRealImage = typeof product.image?.url === "string" && product.image.url.trim() !== "";
+  const productImageHtml = hasRealImage
+    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="this.style.display='none';this.nextElementSibling.hidden=false">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" hidden>')}`
+    : noImageSvg;
+  const attributesSection = attributePills.length > 0
+    ? `<div class="attributes">${attributePills.join("\n        ")}</div>`
+    : "";
+
+  const seoTitle = buildSeoTitle(productName, compatibilities);
+  const seoDescription = buildSeoDescription(productName, productDescription, sku, category, compatibilities);
   const compatibilityCountLabel = `${compatibilities.length} compatibilidades`;
 
   const vehicleCompat = compatibilities.map((item) => {
@@ -477,13 +486,10 @@ function mapProductToTemplateData(product, { baseUrl, outputOverride, usedFileNa
       PRODUCT_SKU: escapeHtml(sku),
       PRODUCT_BRAND: escapeHtml(brand),
       PRODUCT_CATEGORY: escapeHtml(category),
-      PRODUCT_IMAGE_URL: escapeAttr(productImageUrl),
-      PRODUCT_IMAGE_ALT: escapeAttr(productImageAlt),
+      PRODUCT_IMAGE_HTML: productImageHtml,
       WHOLESALE_CTA_URL: escapeAttr(wholesaleCtaUrl),
       WHOLESALE_CTA_TEXT: escapeHtml(wholesaleCtaText),
-      ATTRIBUTE_PILLS: attributePills.length > 0
-        ? attributePills.join("\n        ")
-        : '<span class="attribute-pill">Sin atributos</span>',
+      ATTRIBUTES_SECTION: attributesSection,
       FILTER_BRAND_OPTIONS: renderOptionList(brands),
       FILTER_MODEL_OPTIONS: renderOptionList(models),
       FILTER_YEAR_OPTIONS: renderOptionList(years),
@@ -599,9 +605,6 @@ function renderProductIndexPage(pages, siteUrl) {
     ].join(" ");
   }).join("\n");
 
-  const productBrands = [...new Set(sorted.map((p) => p.brand))].sort((a, b) => a.localeCompare(b, "es"));
-  const categories = [...new Set(sorted.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "es"));
-  const brandOptions = productBrands.map((b) => `<option value="${escapeAttr(b)}">${escapeHtml(b)}</option>`).join("");
   const categoryOptions = categories.map((c) => `<option value="${escapeAttr(c)}">${escapeHtml(c)}</option>`).join("");
   const vehicleBrandOptions = vehicleBrands.map((b) => `<option value="${escapeAttr(b)}">${escapeHtml(b)}</option>`).join("");
   const now = new Date().toISOString().slice(0, 10);
@@ -726,10 +729,6 @@ function renderProductIndexPage(pages, siteUrl) {
       </div>
       <div class="filter-row">
         <div class="filter-group">
-          <label>Marca repuesto</label>
-          <select class="filter" id="f-brand"><option value="">Todas las marcas</option>${brandOptions}</select>
-        </div>
-        <div class="filter-group">
           <label>Categoría</label>
           <select class="filter" id="f-cat"><option value="">Todas las categorías</option>${categoryOptions}</select>
         </div>
@@ -794,7 +793,6 @@ ${cards}
 
       var cards    = Array.from(document.querySelectorAll('#grid .card'));
       var qInput   = document.getElementById('q');
-      var brandSel = document.getElementById('f-brand');
       var catSel   = document.getElementById('f-cat');
       var vBrandSel= document.getElementById('f-vbrand');
       var vModelSel= document.getElementById('f-vmodel');
@@ -812,7 +810,6 @@ ${cards}
 
       function filter() {
         var q      = qInput.value.toLowerCase().trim();
-        var brand  = brandSel.value;
         var cat    = catSel.value;
         var vBrand = vBrandSel.value;
         var vModel = vModelSel.value;
@@ -820,21 +817,24 @@ ${cards}
         var visible = 0;
 
         cards.forEach(function (card) {
-          var matchQ    = !q || card.dataset.name.includes(q) || card.dataset.sku.includes(q) || card.dataset.brand.toLowerCase().includes(q);
-          var matchBrand= !brand || card.dataset.brand === brand;
-          var matchCat  = !cat   || card.dataset.category === cat;
-          var matchV    = true;
+          var matchQ   = !q || card.dataset.name.includes(q) || card.dataset.sku.includes(q) || card.dataset.brand.toLowerCase().includes(q);
+          var matchCat = !cat || card.dataset.category === cat;
+          var matchV   = true;
 
           if (vBrand || vModel || vYear) {
-            var compat = JSON.parse(card.dataset.compat || '[]');
-            matchV = compat.some(function (c) {
-              return (!vBrand || c.b === vBrand) &&
-                     (!vModel || c.m === vModel) &&
-                     (!vYear  || (vYear >= c.ys && vYear <= c.ye));
-            });
+            try {
+              var compat = JSON.parse(card.dataset.compat || '[]');
+              matchV = compat.length > 0 && compat.some(function (c) {
+                return (!vBrand || c.b === vBrand) &&
+                       (!vModel || c.m === vModel) &&
+                       (!vYear  || (vYear >= c.ys && vYear <= c.ye));
+              });
+            } catch (e) {
+              matchV = false;
+            }
           }
 
-          var show = matchQ && matchBrand && matchCat && matchV;
+          var show = matchQ && matchCat && matchV;
           card.hidden = !show;
           if (show) visible++;
         });
@@ -859,7 +859,6 @@ ${cards}
 
       vYearSel.addEventListener('change', filter);
       qInput.addEventListener('input', filter);
-      brandSel.addEventListener('change', filter);
       catSel.addEventListener('change', filter);
     })();
   </script>
@@ -910,12 +909,79 @@ function renderRobotsTxt(siteUrl) {
   ].join("\n");
 }
 
-function buildSeoDescription(description, sku, category) {
-  const base = `${description} SKU ${sku}. Categoría: ${category}.`;
-  if (base.length <= 155) {
-    return base;
+function buildSeoDescription(productName, description, sku, category, compatibilities) {
+  const seen = new Set();
+  const models = [];
+  for (const item of compatibilities) {
+    if (models.length >= 3) break;
+    const vg = item.vehicleGeneration ?? {};
+    const vm = vg.vehicleModel ?? {};
+    const vb = vm.vehicleBrand ?? {};
+    const brandName = pickLocaleText(vb.name, "");
+    const modelName = pickLocaleText(vm.name, "");
+    const ys = parseYear(vg.yearStart);
+    const ye = parseYear(vg.yearEnd);
+    if (!modelName) continue;
+    const key = `${brandName}|${modelName}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const yearStr = ys ? (ye ? ` ${ys}-${ye}` : ` ${ys}`) : "";
+    models.push(`${[brandName, modelName].filter(Boolean).join(" ")}${yearStr}`);
   }
-  return `${base.slice(0, 152)}...`;
+  const parts = [];
+  if (description && description !== "Sin descripción disponible.") parts.push(description);
+  if (models.length > 0) parts.push(`Compatible con ${models.join(", ")}.`);
+  parts.push(`SKU ${sku}. Categoría: ${category}. DisCor Mayorista Córdoba.`);
+  const full = parts.join(" ");
+  return full.length <= 155 ? full : `${full.slice(0, 152)}...`;
+}
+
+function buildSeoTitle(productName, compatibilities) {
+  const seen = new Set();
+  const labels = [];
+  for (const item of compatibilities) {
+    if (labels.length >= 2) break;
+    const vg = item.vehicleGeneration ?? {};
+    const vm = vg.vehicleModel ?? {};
+    const vb = vm.vehicleBrand ?? {};
+    const brandName = pickLocaleText(vb.name, "");
+    const modelName = pickLocaleText(vm.name, "");
+    const ys = parseYear(vg.yearStart);
+    const ye = parseYear(vg.yearEnd);
+    if (!modelName || !ys) continue;
+    const key = `${brandName}|${modelName}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const yearStr = ye ? `${ys}-${ye}` : String(ys);
+    labels.push([brandName, modelName, yearStr].filter(Boolean).join(" "));
+  }
+  if (labels.length === 0) return `${productName} | DisCor Mayorista`;
+  const forStr = `para ${labels.join(" y ")}`;
+  const full = `${productName} ${forStr} | DisCor Mayorista`;
+  if (full.length <= 70) return full;
+  const short = `${productName} para ${labels[0]} | DisCor`;
+  return short.length <= 70 ? short : `${productName} | DisCor Mayorista`;
+}
+
+function buildSeoSlug(productName, sku, compatibilities) {
+  const namePart = slugify(productName);
+  const skuPart = slugify(sku);
+  const seen = new Set();
+  const compatParts = [];
+  for (const item of compatibilities) {
+    if (compatParts.length >= 2) break;
+    const vg = item.vehicleGeneration ?? {};
+    const vm = vg.vehicleModel ?? {};
+    const modelName = pickLocaleText(vm.name, "");
+    const ys = parseYear(vg.yearStart);
+    const ye = parseYear(vg.yearEnd);
+    if (!modelName || !ys) continue;
+    if (seen.has(modelName)) continue;
+    seen.add(modelName);
+    const yearStr = ye ? `${ys}-a-${ye}` : String(ys);
+    compatParts.push(slugify(`${modelName}-${yearStr}`));
+  }
+  return [namePart, ...compatParts, skuPart].filter(Boolean).join("-");
 }
 
 function pickLocaleText(value, fallback) {
