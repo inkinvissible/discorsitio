@@ -411,8 +411,9 @@ function mapProductToTemplateData(product, { baseUrl, imageBaseUrl, outputOverri
 
   const noImageSvg = `<div class="no-image"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span>Sin imagen disponible</span></div>`;
   const hasRealImage = true; // always attempt: onerror handles missing images
+  const imgOnerror = escapeAttr("this.style.display='none';this.parentNode.querySelector('.no-image').style.display='flex'");
   const productImageHtml = hasRealImage
-    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" style="display:none">')}`
+    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="${imgOnerror}">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" style="display:none">')}`
     : noImageSvg;
   const attributesSection = attributePills.length > 0
     ? `<div class="attributes">${attributePills.join("\n        ")}</div>`
@@ -476,6 +477,7 @@ function mapProductToTemplateData(product, { baseUrl, imageBaseUrl, outputOverri
       brand,
       category,
       vehicleCompat,
+      imageUrl: productImageUrl,
       updatedAt: normalizeDate(product.updatedAt)
     },
     templateValues: {
@@ -592,14 +594,18 @@ function renderProductIndexPage(pages, siteUrl) {
 
   const vehicleBrands = Object.keys(brandModels).sort((a, b) => a.localeCompare(b, "es"));
 
+  const cardImgOnerror = escapeAttr("this.parentNode.style.display='none'");
+
   const cards = sorted.map((page) => {
     const compatJson = escapeAttr(JSON.stringify(page.vehicleCompat ?? []));
+    const imgUrl = page.imageUrl ?? "";
     return [
       `<article class="card" data-name="${escapeAttr(page.title.toLowerCase())}"`,
       `data-sku="${escapeAttr(page.sku.toLowerCase())}"`,
       `data-brand="${escapeAttr(page.brand)}"`,
       `data-category="${escapeAttr(page.category)}"`,
       `data-compat="${compatJson}">`,
+      `<div class="card-img"><img src="${escapeAttr(imgUrl)}" alt="${escapeAttr(page.title)}" loading="lazy" onerror="${cardImgOnerror}"></div>`,
       `<p class="sku">SKU ${escapeHtml(page.sku)}</p>`,
       `<h2><a href="./${escapeAttr(page.fileName)}">${escapeHtml(page.title)}</a></h2>`,
       `<p class="desc">${escapeHtml(page.description)}</p>`,
@@ -682,8 +688,13 @@ function renderProductIndexPage(pages, siteUrl) {
 
     /* Card grid */
     .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:.85rem; padding-bottom:3rem; }
-    .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.1rem; display:flex; flex-direction:column; gap:.55rem; transition:box-shadow .25s, transform .25s; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; gap:.55rem; transition:box-shadow .25s, transform .25s; }
     .card:hover { box-shadow:0 8px 28px rgba(0,43,16,.09); transform:translateY(-3px); border-color:#b7d9c6; }
+    .card-img { background:#eef8f2; height:140px; overflow:hidden; flex-shrink:0; }
+    .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .card > :not(.card-img) { padding:0 1.1rem; }
+    .card > .sku { padding-top:.75rem; }
+    .card > .card-link { padding-bottom:1.1rem; }
     .sku { color:var(--muted); font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
     .card h2 { font-size:1rem; line-height:1.3; font-weight:700; }
     .card h2 a:hover { color:var(--green); }
@@ -763,7 +774,7 @@ function renderProductIndexPage(pages, siteUrl) {
     </div>
     <section class="grid" id="grid">
 ${cards}
-      <div class="no-results" id="no-results" hidden>
+      <div class="no-results" id="no-results" style="display:none">
         <strong>Sin resultados</strong>
         Probá con otros términos o borrá los filtros.
       </div>
@@ -841,12 +852,12 @@ ${cards}
           }
 
           var show = matchQ && matchCat && matchV;
-          card.hidden = !show;
+          card.style.display = show ? '' : 'none';
           if (show) visible++;
         });
 
         countEl.textContent = visible + ' de ' + total + ' productos';
-        noRes.hidden = visible > 0;
+        noRes.style.display = visible > 0 ? 'none' : '';
       }
 
       vBrandSel.addEventListener('change', function () {
