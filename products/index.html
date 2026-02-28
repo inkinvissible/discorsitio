@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Autopartes y Cerrajería | DisCor Mayorista</title>
+  <meta name="description" content="Catálogo mayorista de autopartes, cerrajería y accesorios con compatibilidades por vehículo. DisCor — Córdoba.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://discor.com.ar/products/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <style>
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-300.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-700.woff2') format('woff2'); }
+
+    :root {
+      --green:#00ac41; --deep:#006024; --dark:#002b10;
+      --ink:#111814; --muted:#5a6b61; --line:#daeae2; --soft:#f4fbf7;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; }
+    body { font-family:'Inter','Segoe UI',sans-serif; color:var(--ink); background:linear-gradient(180deg,#f8fcfa 0,#f2faf5 100%); min-height:100vh; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(calc(100% - 2.5rem),1120px); margin:0 auto; }
+
+    /* Nav */
+    .site-nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+    .nav-row { height:68px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-brand { display:flex; align-items:center; gap:.6rem; }
+    .nav-brand img { height:34px; }
+    .nav-brand span { font-size:.82rem; color:var(--muted); padding-left:.6rem; border-left:1px solid var(--line); }
+    .nav-cta { background:var(--green); color:#fff!important; font-weight:700; font-size:.88rem; padding:.5rem 1.1rem; border-radius:999px; transition:background .2s; }
+    .nav-cta:hover { background:var(--deep); }
+
+    /* Search / filter bar */
+    .search-bar { background:#fff; border-bottom:1px solid var(--line); padding:.85rem 0 .75rem; }
+    .search-input-wrap { position:relative; margin-bottom:.65rem; }
+    .search-input-wrap svg { position:absolute; left:.75rem; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; }
+    input[type=search] {
+      width:100%; padding:.58rem .75rem .58rem 2.25rem;
+      border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.92rem; color:var(--ink);
+      background:#fff; transition:border-color .2s, box-shadow .2s;
+    }
+    input[type=search]:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+
+    .filter-row { display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-end; }
+    .filter-group { display:flex; flex-direction:column; gap:.25rem; }
+    .filter-group label { font-size:.72rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
+    select.filter {
+      padding:.5rem .7rem; border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.88rem; color:var(--ink);
+      background:#fff; cursor:pointer; min-width:140px;
+    }
+    select.filter:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+    select.filter:disabled { background:#f5f5f5; color:var(--muted); cursor:not-allowed; }
+
+    .filter-divider { width:1px; background:var(--line); height:38px; align-self:flex-end; margin:0 .35rem; }
+    .vehicle-badge { font-size:.72rem; font-weight:700; color:var(--green); background:rgba(0,172,65,.08); border:1px solid rgba(0,172,65,.2); border-radius:999px; padding:.15rem .55rem; align-self:flex-end; margin-bottom:.45rem; white-space:nowrap; }
+
+    /* Results header */
+    .results-meta { padding:.75rem 0 .5rem; display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .results-count { font-size:.88rem; color:var(--muted); }
+    .date-note { font-size:.8rem; color:var(--muted); }
+
+    /* Card grid */
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:.85rem; padding-bottom:3rem; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.1rem; display:flex; flex-direction:column; gap:.55rem; transition:box-shadow .25s, transform .25s; }
+    .card:hover { box-shadow:0 8px 28px rgba(0,43,16,.09); transform:translateY(-3px); border-color:#b7d9c6; }
+    .sku { color:var(--muted); font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+    .card h2 { font-size:1rem; line-height:1.3; font-weight:700; }
+    .card h2 a:hover { color:var(--green); }
+    .desc { color:var(--muted); font-size:.88rem; line-height:1.5; flex:1; }
+    .card-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.2rem; }
+    .pill { background:var(--soft); border:1px solid var(--line); color:var(--deep); font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:999px; }
+    .card-link { color:var(--green); font-weight:700; font-size:.88rem; margin-top:.25rem; }
+    .card-link:hover { color:var(--deep); }
+    .no-results { grid-column:1/-1; text-align:center; padding:3rem 1rem; color:var(--muted); }
+    .no-results strong { display:block; font-size:1.1rem; color:var(--ink); margin-bottom:.5rem; }
+
+    /* Footer */
+    .site-footer { background:linear-gradient(160deg,#001a0a 0%,#002b10 100%); color:rgba(255,255,255,.55); font-size:.88rem; }
+    .footer-inner { padding:2rem 0 1.25rem; display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .footer-brand img { height:30px; filter:brightness(0) invert(1); margin-bottom:.5rem; display:block; }
+    .footer-links { display:flex; gap:1.75rem; }
+    .footer-links a { color:rgba(255,255,255,.5); transition:color .2s; }
+    .footer-links a:hover { color:var(--green); }
+    .footer-hr { border:none; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-bottom { padding:.85rem 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; color:rgba(255,255,255,.3); font-size:.8rem; }
+
+    @media (max-width:640px) {
+      .filter-row { flex-direction:column; align-items:stretch; }
+      .filter-divider { width:100%; height:1px; margin:.1rem 0; }
+      .vehicle-badge { align-self:flex-start; }
+      select.filter { min-width:0; width:100%; }
+      .footer-inner { flex-direction:column; gap:1.25rem; }
+      .footer-links { flex-wrap:wrap; gap:.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap nav-row">
+      <a class="nav-brand" href="../index.html">
+        <img src="../img/logo.png" alt="DisCor">
+        <span>Catálogo</span>
+      </a>
+      <a class="nav-cta" href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
+    </div>
+  </nav>
+
+  <div class="search-bar">
+    <div class="wrap">
+      <div class="search-input-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+        <input type="search" id="q" placeholder="Buscar por nombre, SKU o marca de repuesto…" autocomplete="off">
+      </div>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label>Marca repuesto</label>
+          <select class="filter" id="f-brand"><option value="">Todas las marcas</option><option value="Marca X">Marca X</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Categoría</label>
+          <select class="filter" id="f-cat"><option value="">Todas las categorías</option><option value="Suspensión">Suspensión</option></select>
+        </div>
+        <div class="filter-divider" aria-hidden="true"></div>
+        <span class="vehicle-badge">🚗 Por vehículo</span>
+        <div class="filter-group">
+          <label>Marca vehículo</label>
+          <select class="filter" id="f-vbrand"><option value="">Todas las marcas</option><option value="Marca Auto">Marca Auto</option><option value="Motor Plus">Motor Plus</option><option value="Velocity">Velocity</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Modelo</label>
+          <select class="filter" id="f-vmodel" disabled><option value="">Seleccioná marca primero</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Año</label>
+          <select class="filter" id="f-vyear" disabled><option value="">Seleccioná modelo primero</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="results-meta">
+      <span class="results-count" id="results-count">1 productos</span>
+      <span class="date-note">Actualizado el 2026-02-28</span>
+    </div>
+    <section class="grid" id="grid">
+<article class="card" data-name="amortiguador delantero premium" data-sku="abc-123" data-brand="Marca X" data-category="Suspensión" data-compat="[{&quot;b&quot;:&quot;Marca Auto&quot;,&quot;m&quot;:&quot;Modelo Y&quot;,&quot;ys&quot;:2018,&quot;ye&quot;:2020},{&quot;b&quot;:&quot;Marca Auto&quot;,&quot;m&quot;:&quot;Modelo Y&quot;,&quot;ys&quot;:2021,&quot;ye&quot;:2024},{&quot;b&quot;:&quot;Motor Plus&quot;,&quot;m&quot;:&quot;Modelo Z&quot;,&quot;ys&quot;:2019,&quot;ye&quot;:2022},{&quot;b&quot;:&quot;Velocity&quot;,&quot;m&quot;:&quot;Roadster&quot;,&quot;ys&quot;:2017,&quot;ye&quot;:2021}]"> <p class="sku">SKU ABC-123</p> <h2><a href="./amortiguador-delantero-premium-abc-123.html">Amortiguador delantero premium</a></h2> <p class="desc">Repuesto de alto rendimiento.</p> <div class="card-meta"><span class="pill">Marca X</span><span class="pill">Suspensión</span></div> <a class="card-link" href="./amortiguador-delantero-premium-abc-123.html">Ver ficha →</a> </article>
+      <div class="no-results" id="no-results" hidden>
+        <strong>Sin resultados</strong>
+        Probá con otros términos o borrá los filtros.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="../img/logo.png" alt="DisCor">
+          <p>Distribuidor mayorista de autopartes y cerrajería en Córdoba.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
+          <a href="https://wa.me/5493517638778" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="../terms.html">Términos</a>
+        </nav>
+      </div>
+      <hr class="footer-hr">
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var brandModels = {"Marca Auto":["Modelo Y"],"Motor Plus":["Modelo Z"],"Velocity":["Roadster"]};
+      var modelYears  = {"Marca Auto":{"Modelo Y":[2024,2023,2022,2021,2020,2019,2018]},"Motor Plus":{"Modelo Z":[2022,2021,2020,2019]},"Velocity":{"Roadster":[2021,2020,2019,2018,2017]}};
+
+      var cards    = Array.from(document.querySelectorAll('#grid .card'));
+      var qInput   = document.getElementById('q');
+      var brandSel = document.getElementById('f-brand');
+      var catSel   = document.getElementById('f-cat');
+      var vBrandSel= document.getElementById('f-vbrand');
+      var vModelSel= document.getElementById('f-vmodel');
+      var vYearSel = document.getElementById('f-vyear');
+      var countEl  = document.getElementById('results-count');
+      var noRes    = document.getElementById('no-results');
+      var total    = cards.length;
+
+      function setOptions(sel, opts, placeholder, disabled) {
+        sel.innerHTML = '<option value="">' + placeholder + '</option>' +
+          opts.map(function (o) { return '<option value="' + o + '">' + o + '</option>'; }).join('');
+        sel.disabled = disabled;
+        sel.value = '';
+      }
+
+      function filter() {
+        var q      = qInput.value.toLowerCase().trim();
+        var brand  = brandSel.value;
+        var cat    = catSel.value;
+        var vBrand = vBrandSel.value;
+        var vModel = vModelSel.value;
+        var vYear  = parseInt(vYearSel.value) || 0;
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var matchQ    = !q || card.dataset.name.includes(q) || card.dataset.sku.includes(q) || card.dataset.brand.toLowerCase().includes(q);
+          var matchBrand= !brand || card.dataset.brand === brand;
+          var matchCat  = !cat   || card.dataset.category === cat;
+          var matchV    = true;
+
+          if (vBrand || vModel || vYear) {
+            var compat = JSON.parse(card.dataset.compat || '[]');
+            matchV = compat.some(function (c) {
+              return (!vBrand || c.b === vBrand) &&
+                     (!vModel || c.m === vModel) &&
+                     (!vYear  || (vYear >= c.ys && vYear <= c.ye));
+            });
+          }
+
+          var show = matchQ && matchBrand && matchCat && matchV;
+          card.hidden = !show;
+          if (show) visible++;
+        });
+
+        countEl.textContent = visible + ' de ' + total + ' productos';
+        noRes.hidden = visible > 0;
+      }
+
+      vBrandSel.addEventListener('change', function () {
+        var vb = vBrandSel.value;
+        setOptions(vModelSel, vb ? (brandModels[vb] || []) : [], vb ? 'Todos los modelos' : 'Seleccioná marca primero', !vb);
+        setOptions(vYearSel,  [], 'Seleccioná modelo primero', true);
+        filter();
+      });
+
+      vModelSel.addEventListener('change', function () {
+        var vb = vBrandSel.value, vm = vModelSel.value;
+        var yrs = (vb && vm && modelYears[vb] && modelYears[vb][vm]) ? modelYears[vb][vm] : [];
+        setOptions(vYearSel, yrs, vm ? 'Todos los años' : 'Seleccioná modelo primero', !vm);
+        filter();
+      });
+
+      vYearSel.addEventListener('change', filter);
+      qInput.addEventListener('input', filter);
+      brandSel.addEventListener('change', filter);
+      catSel.addEventListener('change', filter);
+    })();
+  </script>
+
+</body>
+</html>

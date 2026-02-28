@@ -1,0 +1,125 @@
+{
+  "id": "b3d9e0f2-9b8f-4f17-b720-ef88a6ee9c39",
+  "sku": "ABC-123",
+  "erpCode": "P0001",
+  "name": {
+    "es": "Amortiguador delantero premium"
+  },
+  "description": {
+    "es": "Repuesto de alto rendimiento para uso urbano y de ruta."
+  },
+  "image": {
+    "url": "/img/camioneta.jpg",
+    "alt": "Amortiguador delantero instalado en una camioneta"
+  },
+  "wholesaleCtaUrl": "https://clientes.discor.com.ar",
+  "wholesaleCtaText": "Acceder al Área Clientes",
+  "quantityStep": 1,
+  "attributes": {
+    "lado": "izquierdo",
+    "material": "acero",
+    "línea": "premium"
+  },
+  "brand": {
+    "id": "4dcefd22-5c8c-4b41-9d8d-86e850c28b5f",
+    "name": {
+      "es": "Marca X"
+    }
+  },
+  "category": {
+    "id": "35b22b26-b34b-4c1d-81c0-606dc3e93f5e",
+    "name": {
+      "es": "Suspensión"
+    }
+  },
+  "compatibilities": [
+    {
+      "vehicleGenerationId": "gen-1",
+      "vehicleLocationId": "loc-1",
+      "vehicleLocation": {
+        "id": "loc-1",
+        "name": "Delantero"
+      },
+      "vehicleGeneration": {
+        "id": "gen-1",
+        "yearStart": 2018,
+        "yearEnd": 2020,
+        "generationName": "MK2",
+        "vehicleModel": {
+          "id": "model-1",
+          "name": "Modelo Y",
+          "vehicleBrand": {
+            "id": "brand-1",
+            "name": "Marca Auto"
+          }
+        }
+      }
+    },
+    {
+      "vehicleGenerationId": "gen-2",
+      "vehicleLocationId": "loc-1",
+      "vehicleLocation": {
+        "id": "loc-1",
+        "name": "Delantero"
+      },
+      "vehicleGeneration": {
+        "id": "gen-2",
+        "yearStart": 2021,
+        "yearEnd": 2024,
+        "generationName": "MK3",
+        "vehicleModel": {
+          "id": "model-1",
+          "name": "Modelo Y",
+          "vehicleBrand": {
+            "id": "brand-1",
+            "name": "Marca Auto"
+          }
+        }
+      }
+    },
+    {
+      "vehicleGenerationId": "gen-3",
+      "vehicleLocationId": "loc-2",
+      "vehicleLocation": {
+        "id": "loc-2",
+        "name": "Trasero"
+      },
+      "vehicleGeneration": {
+        "id": "gen-3",
+        "yearStart": 2019,
+        "yearEnd": 2022,
+        "generationName": "2da Gen",
+        "vehicleModel": {
+          "id": "model-2",
+          "name": "Modelo Z",
+          "vehicleBrand": {
+            "id": "brand-2",
+            "name": "Motor Plus"
+          }
+        }
+      }
+    },
+    {
+      "vehicleGenerationId": "gen-4",
+      "vehicleLocationId": "loc-3",
+      "vehicleLocation": {
+        "id": "loc-3",
+        "name": "Delantero derecho"
+      },
+      "vehicleGeneration": {
+        "id": "gen-4",
+        "yearStart": 2017,
+        "yearEnd": 2021,
+        "generationName": "Touring",
+        "vehicleModel": {
+          "id": "model-3",
+          "name": "Roadster",
+          "vehicleBrand": {
+            "id": "brand-3",
+            "name": "Velocity"
+          }
+        }
+      }
+    }
+  ]
+}

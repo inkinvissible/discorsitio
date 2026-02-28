@@ -1,821 +1,939 @@
 <!doctype html>
-<html class="h-100" lang="en">
-
+<html class="h-100" lang="es-AR">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BTJG46NPC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'G-6BTJG46NPC');
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <meta name="description"
-          content="Somos DisCor, una distribuidora de autopartes especializada en Cerrajería y Accesorios para vehículos de Uso Cotidiano y Camiones">
-    <title>DisCor: Cerrajería y Accesorios</title>
+    <meta name="description" content="DisCor — Distribuidor mayorista de autopartes y cerrajería en Córdoba. Stock permanente, precios competitivos y entregas en el día para talleres y casas de repuestos.">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="AR-X">
+    <meta name="geo.placename" content="Córdoba, Argentina">
+    <title>DisCor | Distribuidor Mayorista de Autopartes y Cerrajería en Córdoba</title>
+    <link rel="canonical" href="https://discor.com.ar/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DisCor">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="DisCor | Distribuidor Mayorista de Autopartes en Córdoba">
+    <meta property="og:description" content="Stock permanente, precios competitivos y entregas en el día para talleres y casas de repuestos en Córdoba.">
+    <meta property="og:url" content="https://discor.com.ar/">
+    <meta property="og:image" content="https://discor.com.ar/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="DisCor — Distribuidor Mayorista de Autopartes en Córdoba">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DisCor | Distribuidor Mayorista de Autopartes en Córdoba">
+    <meta name="twitter:description" content="Stock permanente, precios competitivos y entregas en el día para talleres y casas de repuestos en Córdoba.">
+    <meta name="twitter:image" content="https://discor.com.ar/img/og-image.jpg">
+
     <link rel="stylesheet" href="css/theme.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-
+    <link rel="manifest" href="img/site.webmanifest">
 
     <style>
-        /* inter-300 - latin */
         @font-face {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 300;
             font-display: swap;
-            src: local(''),
-            url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
-                /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/inter-v12-latin-300.woff') format('woff');
-            /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            src: local(''), url('./fonts/inter-v12-latin-300.woff2') format('woff2');
         }
-
         @font-face {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 500;
             font-display: swap;
-            src: local(''),
-            url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
-                /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/inter-v12-latin-500.woff') format('woff');
-            /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            src: local(''), url('./fonts/inter-v12-latin-500.woff2') format('woff2');
         }
-
         @font-face {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
             font-display: swap;
-            src: local(''),
-            url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
-                /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/inter-v12-latin-700.woff') format('woff');
-            /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            src: local(''), url('./fonts/inter-v12-latin-700.woff2') format('woff2');
         }
+        
+        :root {
+            --brand-green: #00ac41;
+            --brand-deep: #006024;
+            --brand-soft: #f3faf6;
+        }
+
+        html { scroll-padding-top: 110px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #111814;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fcfa 100%);
+        }
+
+        /* Global Spacing */
+        .section-padding { padding: 88px 0; }
+        .section-margin { margin-bottom: 0; }
+        @media (max-width: 991px) {
+            .section-padding { padding: 60px 0; }
+            .section-margin { margin-bottom: 0; }
+        }
+        
+        /* WhatsApp Floating Button */
         .whatsapp-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             z-index: 1000;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 68px;
+            height: 68px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            background-color: #25D366;
+            color: white;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        .whatsapp-btn:hover{
-            background-color: #25d366;
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+            color: white;
+            transform: scale(1.1);
         }
-        .whatsapp-btn svg {
-            width: 28px;
-            height: 28px;
+        
+        /* Navbar */
+        #navScroll {
+            border-bottom: 1px solid rgba(0, 43, 16, 0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-        .verde-bg{
-            background-color: #015922!important;
+        .navbar .nav-link {
+            border-radius: 999px;
+            padding: 0.5rem 0.95rem !important;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--brand-deep) !important;
+            background: rgba(0, 172, 65, 0.1);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-left: 1.5rem;
+        }
+        .nav-actions .btn {
+            white-space: nowrap;
+            padding: 0.55rem 1.15rem !important;
+            font-size: 0.95rem;
+        }
+        @media (min-width: 992px) {
+            #navbarNav {
+                display: flex !important;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .navbar-nav {
+                align-items: center;
+                gap: 0.25rem;
+            }
+        }
+        @media (max-width: 991px) {
+            .nav-actions {
+                flex-direction: column;
+                align-items: stretch;
+                margin-left: 0;
+                margin-top: 1.5rem;
+                gap: 1rem;
+            }
+            .nav-actions .btn { width: 100%; text-align: center; }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background: url('img/bg.jpg') center center / cover no-repeat;
+            padding: 190px 0 120px;
+            color: #fff;
+        }
+        @media (max-width: 991px) {
+            .hero-section { padding: 150px 0 90px; }
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0,43,16,0.96) 0%, rgba(0,96,36,0.88) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+        .hero-btns .btn {
+            min-width: 235px;
+            text-align: center;
+        }
+        @media (max-width: 575px) {
+            .hero-btns { flex-direction: column; }
+            .hero-btns .btn { width: 100%; }
+        }
+        
+        /* Colors & Utils */
+        .text-brand { color: #00ac41 !important; }
+        .bg-brand { background-color: #006024 !important; }
+        .bg-brand-light { background-color: #f4fbf7 !important; }
+        .hover-brand:hover { color: #00ac41 !important; }
+        .transition-all { transition: all 0.3s ease; }
+        
+        /* Buttons */
+        .btn-brand {
+            background-color: #00ac41;
+            color: #fff !important;
+            border: none;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover,
+        .btn-brand:focus-visible,
+        .btn-brand:active {
+            background-color: #009238;
+            color: #fff !important;
+            border-color: #009238 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 172, 65, 0.2);
+        }
+        .btn-brand:focus-visible {
+            box-shadow: 0 0 0 0.25rem rgba(0, 172, 65, 0.32);
+        }
+        .btn-brand,
+        .btn-brand:hover,
+        .btn-brand:focus,
+        .btn-brand:focus-visible,
+        .btn-brand:active {
+            color: #fff !important;
+        }
+
+        .btn-outline-brand {
+            background: transparent;
+            color: var(--brand-green) !important;
+            border: 2px solid rgba(0, 172, 65, 0.68);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-brand:hover,
+        .btn-outline-brand:focus-visible,
+        .btn-outline-brand:active {
+            background: var(--brand-green) !important;
+            color: #fff !important;
+            border-color: var(--brand-green) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 172, 65, 0.2);
+        }
+        .btn-outline-brand:focus-visible {
+            box-shadow: 0 0 0 0.25rem rgba(0, 172, 65, 0.28);
+        }
+
+        .btn-outline-light {
+            border: 2px solid rgba(255,255,255,0.8);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            color: #fff !important;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .btn-outline-light:focus,
+        .btn-outline-light:focus-visible,
+        .btn-outline-light:active {
+            color: #fff !important;
+            border-color: rgba(255,255,255,0.9) !important;
+            background: transparent;
+        }
+
+        /* Section Accents */
+        .section-accent {
+            position: relative;
+            background: linear-gradient(180deg, #fbfefc 0%, var(--brand-soft) 100%) !important;
+            overflow: hidden;
+        }
+        .section-accent::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -120px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 172, 65, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+        .section-accent > .container {
+            position: relative;
+            z-index: 1;
+        }
+        .benefit-col p {
+            max-width: 22rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-head {
+            margin-bottom: 2.75rem !important;
+            padding-bottom: 0 !important;
+        }
+        @media (max-width: 991px) {
+            .section-head {
+                margin-bottom: 2rem !important;
+            }
+        }
+        .btn-outline-light:hover {
+            background: #fff;
+            color: #006024 !important;
+            border-color: #fff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+        .btn-outline-light:focus-visible {
+            background: #fff;
+            color: #006024 !important;
+            border-color: #fff !important;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.32);
+        }
+
+        .cta-actions {
+            margin-top: 1.5rem !important;
+            gap: 1rem !important;
+        }
+        .cta-actions .btn {
+            min-width: 220px;
+            padding: 0.85rem 1.6rem !important;
+        }
+        @media (max-width: 575px) {
+            .cta-actions {
+                margin-top: 1.25rem !important;
+            }
+            .cta-actions .btn {
+                width: 100%;
+            }
+        }
+        
+        /* Beneficios Box */
+        .icon-box {
+            width: 80px; height: 80px;
+            border-radius: 24px;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            background: rgba(0, 172, 65, 0.08);
+            color: #00ac41;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        .benefit-col:hover .icon-box { transform: scale(1.1) rotate(-5deg); }
+        
+        /* Cards */
+        .card-custom {
+            border: 1px solid #eef6f1;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card-custom:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0, 96, 36, 0.08);
+            border-color: rgba(0, 172, 65, 0.2);
+        }
+        
+        /* Spiced Flow Section */
+        .step-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 45px 35px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 43, 16, 0.04);
+            border: 1px solid rgba(0, 172, 65, 0.08);
+            z-index: 1;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 43, 16, 0.09);
+        }
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, #00ac41, #006024);
+        }
+        .step-number-bg {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-size: 8rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            color: rgba(0, 172, 65, 0.04);
+            z-index: -1;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .step-icon {
+            width: 60px; height: 60px;
+            background: #f4fbf7;
+            border-radius: 16px;
+            display: flex; justify-content: center; align-items: center;
+            color: #00ac41;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 172, 65, 0.15);
+        }
+
+        /* ── Responsive typography ── */
+        @media (max-width: 767px) {
+            .display-3 { font-size: 2.4rem !important; line-height: 1.15; }
+            .display-4 { font-size: 1.9rem !important; line-height: 1.2; }
+        }
+        @media (max-width: 575px) {
+            .display-3 { font-size: 2rem !important; }
+            .display-4 { font-size: 1.65rem !important; }
+            .section-padding { padding: 48px 0; }
+            .hero-section { padding: 110px 0 56px; }
+            .step-card { padding: 28px 22px; }
+        }
+
+        /* ── Mobile Navbar ── */
+        @media (max-width: 991px) {
+            #navbarNav {
+                border-top: 1px solid rgba(0, 0, 0, 0.07);
+                margin-top: 0.75rem;
+                padding-top: 0.25rem;
+                padding-bottom: 0.75rem;
+            }
+            .navbar-nav {
+                padding-bottom: 0.75rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        /* ── Footer responsive ── */
+        .footer-dark {
+            background: linear-gradient(160deg, #001a0a 0%, #002b10 100%);
+            color: rgba(255,255,255,0.75);
+        }
+        .footer-dark .footer-heading {
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+        .footer-dark .footer-link {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            display: inline-block;
+            line-height: 1.4;
+        }
+        .footer-dark .footer-link:hover { color: #00ac41; }
+        .footer-dark .footer-link.featured {
+            color: #00ac41;
+            font-weight: 700;
+        }
+        .footer-dark .footer-link.featured:hover { color: #33c467; }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .footer-contact-item .icon {
+            color: #00ac41;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .footer-divider {
+            border-color: rgba(255,255,255,0.08);
+        }
+        .footer-bottom {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-bottom a:hover { color: rgba(255,255,255,0.8); }
+        .footer-dark a.footer-contact-item:hover {
+            color: #00ac41;
+        }
+        .footer-dark a.footer-contact-item:hover .icon {
+            color: #33c467;
+        }
+        @media (max-width: 991px) {
+            .footer-brand-col { border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem; }
         }
     </style>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoPartsStore",
+      "name": "DisCor",
+      "description": "Distribuidor mayorista de autopartes, cerrajería y accesorios para vehículos en Córdoba, Argentina.",
+      "url": "https://discor.com.ar/",
+      "telephone": "+54 9 351 763-8778",
+      "priceRange": "$$",
+      "image": "https://discor.com.ar/img/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lorenzo Barcala 665",
+        "addressLocality": "Córdoba",
+        "addressRegion": "Córdoba",
+        "postalCode": "5000",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -31.4135,
+        "longitude": -64.1811
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Córdoba"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Autopartes y Cerrajería",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Cerrajería Automotriz"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Amortiguadores y Burletes"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Espejos y Vidrios"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Clips y Broches"}}
+        ]
+      }
+    }
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navScroll">
 
-<nav id="navScroll" style="background-color: rgba(255,255,255,0.85)" class="navbar navbar-expand-lg navbar-light fixed-top" tabindex="0">
-    <div class="container">
-        <a class="navbar-brand pe-4 fs-4" href="/">
-            <img src="img/logo.png" style="height: 32px;" alt="Logo DisCor con colores verdes">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BTJG46NPC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6BTJG46NPC');
+    </script>
 
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#services" aria-label="Brings you to the frontpage">
-                        Servicios
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#aboutus">
-                        Nosotros
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#rubros">
-                        Rubros
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#workwithus">
-                        Contactanos
-                    </a>
-                </li>
-
-
-            </ul>
-            <a href="discor.multisoft.ar" data-splitbee-event="Click Download" aria-label="Download this template"
-               class="link-dark pb-1 link-fancy me-2">
-                Área Clientes
+    <!-- Navbar -->
+    <nav id="navScroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm transition-all" style="padding: 18px 0;" tabindex="0">
+        <div class="container">
+            <a class="navbar-brand pe-4" href="/">
+                <img src="img/logo.png" style="height: 42px;" alt="Logo DisCor">
             </a>
-
-        </div>
-    </div>
-</nav>
-
-<main>
-    <div class="w-100 overflow-hidden bg-gray-100" id="top">
-
-        <div class="container position-relative background-opaco">
-            <div class="col-12 col-lg-8 mt-0 h-100 position-absolute top-0 end-0 bg-cover" data-aos="fade-left"
-                 style="background-image: url(https://images.pexels.com/photos/18617934/pexels-photo-18617934/free-photo-of-handle-on-door-of-white-car.jpeg);">
-                <div class=" background-opaco"></div>
-            </div>
-            <div class="row">
-
-                <div class="col-lg-7 py-vh-6 position-relative" data-aos="fade-right">
-                    <h1 class="display-1 fw-bold mt-5">DisCor: Cerrajería y Accesorios</h1>
-                    <p class="lead"> Ofrecemos una amplia
-                        gama de autopartes especializadas en <span class="bold">cerrajería para vehículos</span>, desde
-                        manijas
-                        interiores y exteriores, hasta espejos, burletes y mucho más. Nos
-                        enfocamos en la calidad que nuestros clientes necesitan para garantizar el mejor producto, al
-                        mejor
-                        precio.</p>
-                    <a href="#workwithus" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">Contactanos</a>
+            <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold fs-6">
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link text-dark hover-brand" href="#rubros">Catálogo</a>
+                    </li>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link text-dark hover-brand" href="#operacion">Operación</a>
+                    </li>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link text-dark hover-brand" href="#logistica">Logística</a>
+                    </li>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link text-dark hover-brand" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="https://wa.me/5493517638778" target="_blank" class="btn btn-outline-brand fw-bold rounded-pill px-4 py-2">Contactar</a>
+                    <a href="https://clientes.discor.com.ar" target="_blank" class="btn btn-brand rounded-pill px-4 py-2">Área Clientes</a>
                 </div>
-
-
             </div>
         </div>
+    </nav>
 
-    </div>
+    <!-- Hero -->
+    <section class="hero-section text-center text-lg-start" id="top">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-8 col-xl-7" data-aos="fade-up">
+                    <span class="badge bg-brand text-white px-4 py-2 rounded-pill mb-4 fs-6 border border-light border-opacity-25 shadow-sm">Mayorista en Córdoba de cerrajería y accesorios</span>
+                    <h1 class="display-3 fw-bold mb-4 text-white lh-sm">El Mayorista de <span class="text-brand">Autopoartes</span> para tu Negocio</h1>
+                    <p class="lead mb-4 opacity-75 pe-lg-5 fs-4 lh-base">Abastecemos a talleres, casas de repuestos y distribuidores con stock de alta rotación, respuesta inmediata y entregas en el día.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="https://wa.me/5493517638778?text=Hola%20DisCor%2C%20quiero%20lista%20de%20precios%20B2B" target="_blank" class="btn btn-brand btn-lg rounded-pill px-5 py-3 fs-5">Pedir Lista de Precios</a>
+                        <a href="https://clientes.discor.com.ar" target="_blank" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fs-5">Ir al Área Clientes</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-xl-1 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card bg-white text-dark p-5 border-0 rounded-4 shadow-lg text-center" style="transform: translateY(20px);">
+                        <h3 class="fw-bold mb-3 display-5 text-brand">+500</h3>
+                        <p class="text-muted mb-0 fs-5">Clientes comerciales confían en nuestro servicio.</p>
+                        <hr class="my-4 opacity-25">
+                        <h3 class="fw-bold mb-3 display-5 text-brand">10+ Años</h3>
+                        <p class="text-muted mb-0 fs-5">De trayectoria garantizando continuidad en el rubro.</p>
+                        <hr class="my-4 opacity-25">
+                        <h3 class="fw-bold mb-3 h2 text-brand">Entregas en el Día</h3>
+                        <p class="text-muted mb-0 fs-5">Logística propia para Córdoba Capital e interior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="py-vh-5 w-100 overflow-hidden" id="services">
+    <!-- Beneficios Bar -->
+    <section class="section-padding bg-light">
         <div class="container">
-            <div class="row d-flex justify-content-end">
-                <div class="col-lg-8" data-aos="fade-down">
-                    <h2 class="display-6">¿Por qué nosotros?</h2>
+            <div class="row g-4 g-lg-5 text-center">
+                <div class="col-md-4 benefit-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon-box mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16"><path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/></svg>
+                    </div>
+                    <h4 class="fw-bold h3 mb-3">Stock Permanente</h4>
+                    <p class="text-muted fs-5 px-lg-3">Inventario real enfocado en piezas de alta demanda para evitar tiempos muertos en el mostrador.</p>
+                </div>
+                <div class="col-md-4 benefit-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16"><path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+                    </div>
+                    <h4 class="fw-bold h3 mb-3">Logística Rápida</h4>
+                    <p class="text-muted fs-5 px-lg-3">Despachos organizados para entregas en el día en Córdoba Capital, manteniendo tu ritmo de trabajo.</p>
+                </div>
+                <div class="col-md-4 benefit-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16"><path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/></svg>
+                    </div>
+                    <h4 class="fw-bold h3 mb-3">Atención Comercial</h4>
+                    <p class="text-muted fs-5 px-lg-3">Equipo dispuesto a asesorarte, confirmar stock en tiempo real y gestionar tus pedidos de manera eficaz.</p>
                 </div>
             </div>
-            <div class="row d-flex align-items-center">
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <span class="h5 fw-lighter">01.</span>
-                    <h3 class="py-5 border-top border-dark">Atención personalizada</h3>
-                    <p>Nuestro equipo se esfuerza por brindarte un servicio amigable y eficiente, asegurándonos de que
-                        encuentres las piezas que necesitas para tu negocio en el menor tiempo posible</p>
-
-                </div>
-
-                <div class="col-md-6 col-lg-4 py-vh-4 pb-0" data-aos="fade-up" data-aos-delay="400">
-                    <span class="h5 fw-lighter">02.</span>
-                    <h3 class="py-5 border-top border-dark">Logística rápida</h3>
-                    <p>Si estás en Córdoba, tendrás tu pedido el mismo día. Si estás en el interior, nos aseguramos de
-                        que
-                        llegue sin demoras.</p>
-
-                </div>
-
-                <div class="col-md-6 col-lg-4 py-vh-6 pb-0" data-aos="fade-up" data-aos-delay="600">
-                    <span class="h5 fw-lighter">03.</span>
-                    <h3 class="py-5 border-top border-dark">Expertos en cerrajería</h3>
-                    <p>Nos especializamos en autopartes de cerrajería, siendo los mejores en lo que hacemos.</p>
-
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
 
-    <div class="py-5" id="rubros">
+    <!-- Rubros con Imagen -->
+    <section id="rubros" class="section-padding bg-white section-accent">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <h2 class="display-6 mb-4">Nuestros Rubros</h2>
-                    <p class="lead mb-5">
-                        Contamos con una amplia diversidad de rubros que incluyen accesorios, cerrajería y mucho más para el automotor.
-                    </p>
+            <div class="row g-4 g-lg-5 align-items-center">
+                <!-- Left side: Picture and Intro -->
+                <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
+                    <h2 class="display-4 fw-bold mb-4">Catálogo con <span class="text-brand">Demanda Real</span></h2>
+                    <p class="lead text-muted mb-4 fs-4">Nuestro portafolio está enfocado en las piezas de mayor rotación para que mantengas tu nivel de reparación y ventas sin interrupciones.</p>
+                    <img src="img/catalogue-image.webp" alt="Catálogo DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy">
+                </div>
+                
+                <!-- Right side: Grid of categories -->
+                <div class="col-lg-7 ps-lg-5">
+                    <div class="row gy-4 gx-4">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+                            <div class="card card-custom h-100 p-4 p-lg-5 bg-brand-light">
+                                <div class="text-brand mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16"><path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/><path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+                                </div>
+                                <h3 class="fw-bold h4 text-dark mb-3">Cerrajería Completa</h3>
+                                <p class="text-muted mb-0 fs-6">Manijas interiores y exteriores, levantacristales, cierres, cilindros y cerraduras.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card card-custom h-100 p-4 p-lg-5 bg-brand-light">
+                                <div class="text-brand mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16"><path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/></svg>
+                                </div>
+                                <h3 class="fw-bold h4 text-dark mb-3">Amortiguadores y Burletes</h3>
+                                <p class="text-muted mb-0 fs-6">Amortiguadores de baúl/capot y burletes adaptables a la mayoría del parque.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card card-custom h-100 p-4 p-lg-5 bg-brand-light">
+                                <div class="text-brand mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-display" viewBox="0 0 16 16"><path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z"/></svg>
+                                </div>
+                                <h3 class="fw-bold h4 text-dark mb-3">Espejos y Vidrios</h3>
+                                <p class="text-muted mb-0 fs-6">Línea de espejos retrovisores y vidrios de reposición frecuente.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card card-custom h-100 p-4 p-lg-5 bg-brand-light">
+                                <div class="text-brand mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16"><path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/></svg>
+                                </div>
+                                <h3 class="fw-bold h4 text-dark mb-3">Clips y Broches</h3>
+                                <p class="text-muted mb-0 fs-6">Más de 500 variantes en grampas para interior y exterior del vehículo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <!-- Primera columna: -->
-                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">01</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Manijas</h5>
-                                <p class="mb-1">
-                                    Manijas interiores y exteriores, manijas levanta cristal, manijas abre capot y tira capot y mucho más.
-                                </p>
+        </div>
+    </section>
+
+    <!-- Operación B2B (Spiced Flow) -->
+    <section id="operacion" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center section-head" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-4">Un flujo diseñado para B2B</h2>
+                <p class="lead text-muted mx-auto fs-4" style="max-width: 900px;">Comprar repuestos al por mayor debe ser simple, predecible y rápido. Así es como operamos con nuestros clientes para agilizar su negocio:</p>
+            </div>
+            
+            <div class="row g-4 g-lg-5 mt-2">
+                <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="step-card">
+                        <div class="step-number-bg">1</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16"><path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/></svg>
+                        </div>
+                        <h4 class="fw-bold h3 mb-3">Consulta Técnica</h4>
+                        <p class="text-muted fs-6 mb-0">Nos pasás tu lista de requerimientos por WhatsApp. Verificamos disponibilidad de inmediato en el sistema.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-card">
+                        <div class="step-number-bg">2</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2.5a1 1 0 0 0 1 1H13v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/></svg>
+                        </div>
+                        <h4 class="fw-bold h3 mb-3">Cotización</h4>
+                        <p class="text-muted fs-6 mb-0">Recibís una propuesta precisa y competitiva con la confirmación de nuestro stock real asegurado.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-card">
+                        <div class="step-number-bg">3</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16"><path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/></svg>
+                        </div>
+                        <h4 class="fw-bold h3 mb-3">Despacho</h4>
+                        <p class="text-muted fs-6 mb-0">Aprobado el pedido, preparamos tu orden y la despachamos ese mismo día para clientes de la zona.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-card">
+                        <div class="step-number-bg">4</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16"><path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/><path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/></svg>
+                        </div>
+                        <h4 class="fw-bold h3 mb-3">Post-Venta</h4>
+                        <p class="text-muted fs-6 mb-0">Te asistimos de forma continua y anticipamos faltantes para asegurar que tu negocio no se detenga nunca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logística -->
+    <section id="logistica" class="section-padding bg-white section-accent">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="img/camioneta.jpg" alt="Logística DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy">
+                </div>
+                <div class="col-lg-6 px-lg-5" data-aos="fade-left">
+                    <span class="badge bg-brand-light text-brand px-4 py-2 rounded-pill mb-4 fw-bold fs-6 border border-success border-opacity-50">Logística Propia</span>
+                    <h2 class="display-4 fw-bold mb-4">Entrega ágil donde y cuando lo necesites</h2>
+                    <p class="text-muted lead mb-4 fs-4">La logística es el corazón de nuestro servicio mayorista. Entendemos que un repuesto que llega tarde significa un vehículo inmovilizado y una pérdida de dinero para tu taller.</p>
+                    <ul class="list-unstyled fs-5 mt-4">
+                        <li class="d-flex align-items-start mb-4">
+                            <svg class="text-brand me-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                            <span class="fw-medium text-dark">Entregas en el día en la Ciudad de Córdoba.</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-4">
+                            <svg class="text-brand me-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                            <span class="fw-medium text-dark">Despachos eficientes a través de transportes para el interior.</span>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <svg class="text-brand me-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                            <span class="fw-medium text-dark">Seguimiento en tiempo real de tu pedido.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 pt-1">
+                        <a href="https://wa.me/5493517638778" class="btn btn-brand rounded-pill px-5 py-3 fs-5 fw-bold shadow-lg">Coordinar Envío</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section id="opiniones" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center section-head" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-4">Opiniones de clientes B2B</h2>
+                <p class="text-muted lead fs-4">Talleres y distribuidores respaldan nuestra calidad de servicio y compromiso diario.</p>
+            </div>
+            <div class="row g-4 g-lg-5">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card card-custom h-100 p-4 p-lg-5 border-0 bg-white">
+                        <div class="text-warning mb-4 fs-3">★★★★★</div>
+                        <p class="fst-italic text-dark mb-5 fs-5">"Excelente atención, variedad y precios. Responden rápido y cumplen con lo prometido, lo que nos facilita el trabajo del día a día."</p>
+                        <div class="mt-auto border-top pt-4">
+                            <h5 class="fw-bold mb-1 fs-5">Karina Zamer</h5>
+                            <span class="text-muted">Cliente Comercial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-custom h-100 p-4 p-lg-5 border-0 bg-white">
+                        <div class="text-warning mb-4 fs-3">★★★★★</div>
+                        <p class="fst-italic text-dark mb-5 fs-5">"Muy buena atención y cumplimiento en las entregas. Los recomiendo 100% como proveedores estables para cualquier taller."</p>
+                        <div class="mt-auto border-top pt-4">
+                            <h5 class="fw-bold mb-1 fs-5">Miguel Ángel Manca</h5>
+                            <span class="text-muted">Taller Mecánico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-custom h-100 p-4 p-lg-5 border-0 bg-white">
+                        <div class="text-warning mb-4 fs-3">★★★★★</div>
+                        <p class="fst-italic text-dark mb-5 fs-5">"Nos resolvieron faltantes de cerrajería que no conseguíamos en otro lado, y con tiempos de respuesta que no hemos visto en otros proveedores."</p>
+                        <div class="mt-auto border-top pt-4">
+                            <h5 class="fw-bold mb-1 fs-5">Lucas Ramirez</h5>
+                            <span class="text-muted">Distribuidor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contacto" class="section-padding" style="background: linear-gradient(135deg, #002b10 0%, #006024 100%);">
+        <div class="container text-center text-white py-lg-4">
+            <h2 class="display-3 fw-bold mb-4" data-aos="fade-up">¿Necesitás un proveedor estable?</h2>
+            <p class="lead mb-4 opacity-75 fs-4" data-aos="fade-up" data-aos-delay="100" style="max-width: 800px; margin: 0 auto;">Mejorá la rentabilidad de tu taller o negocio de repuestos con nuestro catálogo de cerrajería y accesorios de alta calidad.</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center cta-actions" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/5493517638778" target="_blank" class="btn btn-brand btn-lg rounded-pill px-4 py-2 shadow-lg fw-bold">Hablar con Asesor</a>
+                <a href="tel:+5493517638778" class="btn btn-outline-light btn-lg rounded-pill px-4 py-2">Llamar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-dark">
+        <div class="container py-5">
+            <div class="row g-5 pt-lg-2 pb-lg-3">
+
+                <!-- Brand col -->
+                <div class="col-lg-5 col-xl-4 footer-brand-col pe-lg-5">
+                    <img src="img/logo.png" alt="Logo DisCor" style="height: 38px; filter: brightness(0) invert(1);" class="mb-4">
+                    <p class="mb-4" style="font-size:0.95rem; line-height:1.75;">Distribuidor mayorista de cerrajería y accesorios para vehículos. Stock permanente y entregas en el día para talleres y repuesteros en Córdoba.</p>
+                    <a href="https://clientes.discor.com.ar" target="_blank" class="btn btn-brand rounded-pill px-4 py-2 fw-bold">
+                        Acceder al Área Clientes
+                    </a>
+                </div>
+
+                <!-- Nav col -->
+                <div class="col-6 col-lg-3">
+                    <p class="footer-heading">Navegación</p>
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                        <li><a href="#rubros" class="footer-link">Catálogo</a></li>
+                        <li><a href="#operacion" class="footer-link">Operación B2B</a></li>
+                        <li><a href="#logistica" class="footer-link">Logística</a></li>
+                        <li><a href="#opiniones" class="footer-link">Opiniones</a></li>
+                        <li><a href="terms.html" class="footer-link">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact col -->
+                <div class="col-6 col-lg-4">
+                    <p class="footer-heading">Contacto</p>
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                        <li>
+                            <a href="https://wa.me/5493517638778" target="_blank" class="footer-contact-item text-decoration-none">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                                +54 9 351 763-8778
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+5493517638778" class="footer-contact-item text-decoration-none">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/></svg>
+                                Llamar ahora
+                            </a>
+                        </li>
+                        <li>
+                            <div class="footer-contact-item">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
+                                Lorenzo Barcala 665, Córdoba
                             </div>
                         </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">02</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Burletes</h5>
-                                <p class="mb-1">
-                                    Contamos con una amplia variedad de burletes de puerta, de portón, de techo y más.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">03</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Amortiguadores</h5>
-                                <p class="mb-1">
-                                    Gran cantidad de amortiguadores de baúl y de capot para todos los autos.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">04</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Cerrajería</h5>
-                                <p class="mb-1">
-                                    Cerraduras, cierres, cilindros de contacto, cilindros de capot, retenes y mucho más.
-                                </p>
+                        <li>
+                            <div class="footer-contact-item">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/></svg>
+                                Lunes a Viernes · 8:00 – 18:00
                             </div>
                         </li>
                     </ul>
                 </div>
-                <!-- Segunda columna: -->
-                <div class="col-12 col-lg-6">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">05</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Espejos y vidrios de espejos</h5>
-                                <p class="mb-1">
-                                    Amplia variedad de espejos exteriores, y también vidrios de espejo para diversos automóviles.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">06</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Clips, broches y grampas</h5>
-                                <p class="mb-1">
-                                    Más de 500 tipos y modelos de clips para gran cantidad de automóviles.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">07</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Máquinas Levanta Cristal</h5>
-                                <p class="mb-1">
-                                    Disponemos de máquinas levanta cristal manuales y eléctricas.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <span class="badge verde-bg rounded-pill me-3">08</span>
-                            <div class="ms-2 me-auto">
-                                <h5 class="mb-1">Accesorios</h5>
-                                <p class="mb-1">
-                                    Contamos con algunos accesorios como cornamusas, salvapuertas, tapas de tanques y más.
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+
+            </div>
+
+            <hr class="footer-divider mt-5 mb-4">
+
+            <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+                <span>&copy; <span id="year">2026</span> DisCor. Todos los derechos reservados.</span>
+                <a href="terms.html">Términos y Condiciones</a>
             </div>
         </div>
-    </div>
+    </footer>
 
-
-
-
-    <div class="py-vh-4 bg-gray-100 w-100 overflow-hidden" id="aboutus">
-        <div class="container">
-
-            <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-lg-6">
-                    <div class="row gx-5 d-flex">
-                        <div class="col-md-11">
-                            <div class="shadow ratio ratio-16x9 rounded bg-cover bp-center align-self-end"
-                                 data-aos="fade-right"
-                                 style="background-image: url(https://images.unsplash.com/photo-1506469717960-433cebe3f181?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);--bs-aspect-ratio: 50%;">
-                            </div>
-                        </div>
-                        <div class="col-md-5 offset-md-1">
-                            <div class="shadow ratio ratio-1x1 rounded bg-cover mt-5 bp-center float-end"
-                                 data-aos="fade-up"
-                                 style="background-image: url(https://inkinvissible.github.io/DCJs2/imagenes/foto-inicio-manija1.jpg);">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-12 shadow ratio rounded bg-cover mt-5 bp-center" data-aos="fade-left"
-                                 style="background-image: url(https://images.unsplash.com/photo-1515568985442-0d133d433848?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);--bs-aspect-ratio: 150%;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h3 class="py-5 border-top border-dark" data-aos="fade-left">Distribución Eficiente y Atención al
-                        Cliente de
-                        Primer Nivel</h3>
-                    <p data-aos="fade-left" data-aos-delay="200">Sabemos que el tiempo es esencial. Por eso, nos
-                        comprometemos a
-                        que los negocios de Córdoba capital reciban su mercadería el mismo día que la pidieron,
-                        asegurando una
-                        entrega rápida y eficiente. Nuestra logística avanzada y atención personalizada nos diferencian
-                        de la
-                        competencia.
-                    </p>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="py-vh-5 w-100 overflow-hidden" id="numbers">
-        <div class="container">
-            <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-lg-5">
-                    <h2 class="py-5 border-top border-dark" data-aos="fade-right">Nuestros Números</h2>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="display-6 mb-5" data-aos="fade-down">Con 10 años de experiencia en el mercado de
-                                autopartes,
-                                ofrecemos productos de alta calidad
-                                y entrega rápida</h3>
-                        </div>
-                        <div class="col-lg-6" data-aos="fade-up">
-                            <div class="display-1 fw-bold py-4">99%</div>
-                            <p class="text-black-50"><span
-                                    class="bold">99% de entregas dentro del tiempo acordado</span>, con
-                                despachos el mismo día en Córdoba capital.</p>
-                        </div>
-                        <div class="col-lg-6" data-aos="fade-up">
-                            <div class="display-1 fw-bold py-4">+500</div>
-                            <p class="text-black-50"><span class="bold">Más de 500 clientes satisfechos</span> a lo
-                                largo de nuestra
-                                trayectoria.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="position-relative overflow-hidden w-100 bg-light" id="gallery">
-        <div class="container-fluid">
-            <div class="row overflow-scroll">
-                <div class="col-12">
-                    <div class="row vw-100 px-0 py-vh-5 d-flex align-items-center scrollx">
-                        <div class="col-md-2" data-aos="fade-up">
-                            <img
-                                    src="https://images.unsplash.com/photo-1609143739217-01b60dad1c67?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    class="rounded shadow img-fluid" alt="nice gallery image" width="512" height="341">
-                        </div>
-
-                        <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
-                            <img src="img/camion.jpg" class="img-fluid rounded shadow" alt="nice gallery image"
-                                 width="1164"
-                                 height="776">
-                        </div>
-
-                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                            <img src="img/camioneta.jpg" class="img-fluid rounded shadow" alt="nice gallery image"
-                                 width="844"
-                                 height="1054">
-                        </div>
-
-                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="600">
-                            <img src="img/intro-discor.jpg" class="img-fluid rounded shadow" alt="nice gallery image"
-                                 width="844"
-                                 height="562">
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="container py-vh-4 w-100 overflow-hidden">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-5">
-                <h2 class="py-5 border-top border-dark" data-aos="fade-right">¿Sos Distribuidor o Taller?
-                    ¡Hablemos!</h2>
-            </div>
-            <div class="col-md-7" data-aos="fade-left">
-                <blockquote>
-                    <div class="fs-4 my-3 fw-light pt-4 border-bottom pb-3">Si tenés un negocio o taller mecánico,
-                        nuestro
-                        modelo B2B está diseñado para hacer tu trabajo más fácil. Te ofrecemos precios competitivos y un
-                        servicio
-                        de entrega confiable que te permitirá mantener tu stock siempre abastecido.
-
-                    </div>
-
-
-                </blockquote>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="py-vh-6 bg-gray-900 text-light w-100 overflow-hidden" id="workwithus">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="row d-flex justify-content-center text-center">
-                    <div class="col-lg-8 text-center" data-aos="fade">
-                        <h2 class="display-6 mb-5">Contactanos</h2>
-                        <p class="text-secondary lead">Empecemos a trabajar juntos</p>
-                        <p class="text-secondary lead">Teléfono: <a href="api.whatsapp.com/send/?phone=5493517638778"
-                                                                    style="color: white; text-decoration: none;">+54 9
-                            351 763-8778</a></p>
-
-                        <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.3328145164655!2d-64.19389532434242!3d-31.404955274266896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432987ce6160949%3A0xb6862cb26435ff85!2sDiscor%3A%20Cerrajer%C3%ADa%20y%20Accesorios!5e0!3m2!1ses!2sar!4v1726352556675!5m2!1ses!2sar"
-                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="btn btn-warning btn-xl shadow me-3 mt-4" data-aos="fade-down">Nuestro
-                            WhatsApp</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-light w-100 overflow-hidden" id="testimonials">
-        <div class="container py-vh-6">
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 col-lg-10 col-xl-8 text-center">
-                    <h2 class="display-6">Nuestros Comentarios</h2>
-
-                </div>
-                <div class="col-12 mt-4">
-                    <div class="row row-cols-1 row-cols-md-2 g-5 d-flex align-items-center">
-
-                        <div class="col-12 col-lg-6 col-xl-4" data-aos="fade-right">
-                            <div class="card p-4 mt-3 border-0">
-                                <div class="card-body">
-                                    <div class="text-dark py-2 fs-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                    </div>
-                                    <blockquote class="blockquote">
-                                        <p>"Excelente atención, variedad y precios!"</p>
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <div>
-                                            <span class="h6 fw-5">Karina Zamer</span><br>
-
-                                        </div>
-                                        <img
-                                                src="https://lh3.googleusercontent.com/a-/ALV-UjWrRnfNHL1TBFEmnXlK-R3Cbb_tEZMKRD_f3hu-ZYRzwHMxYdE_YQ=w75-h75-p-rp-mo-ba4-br100"
-                                                width="48" height="48" class="rounded-circle" alt="" data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 col-xl-4">
-                            <div class="card p-4 shadow mt-3 border-0" data-aos="fade-down">
-                                <div class="card-body">
-                                    <div class="text-dark py-2 fs-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-
-                                    </div>
-                                    <blockquote class="blockquote">
-                                        <p>"Muy buena atención y precios"</p>
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <p class="card-text">
-                                            <span class="h6 fw-5">Miguel Ángel Manca</span><br>
-
-                                        </p>
-                                        <img
-                                                src="https://lh3.googleusercontent.com/a/ACg8ocLWLYvgFRIZ-rna-ZMPIWWs5Vdf2sjyIjVaOfg6iXN03X0Neg=w75-h75-p-rp-mo-ba4-br100"
-                                                width="48" height="48" class="rounded-circle" alt="" data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 col-xl-4">
-                            <div class="card p-4 mt-3 border-0" data-aos="fade-left">
-                                <div class="card-body">
-                                    <div class="text-dark py-2 fs-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor"
-                                             class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path
-                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-
-
-                                    </div>
-                                    <blockquote class="blockquote">
-
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <p class="card-text">
-                                            <span class="h6 fw-5">Lucas Ramirez</span><br>
-
-                                        </p>
-                                        <img
-                                                src="https://lh3.googleusercontent.com/a-/ALV-UjVjHSVWdUliE9Fe-M9ZWt4AdPhj3Ywh122BWUtmDPFFLvJIMMHb=w75-h75-p-rp-mo-ba3-br100"
-                                                width="48" height="48" class="rounded-circle" alt="" data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/5493517638778" target="_blank" class="btn btn-success whatsapp-btn text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5493517638778?text=Hola%20DisCor%2C%20quiero%20hacer%20una%20consulta" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
         </svg>
     </a>
 
-    <div class="small py-vh-3 w-100 overflow-hidden">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up">
-                    <div class="d-flex">
-                        <div class="col-md-3 flex-fill pt-3 pe-3 pe-md-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                 class="bi bi-box-seam" viewbox="0 0 16 16">
-                                <path
-                                        d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
-                            </svg>
-                        </div>
-                        <div class="col-md-9 flex-fill">
-                            <h3 class="h5 my-2">Logística Rápida y Eficiente</h3>
-                            <p>El tiempo es crucial. Es por eso que hemos optimizado nuestra logística para ofrecer
-                                entregas el
-                                mismo día en Córdoba capital y garantizar despachos rápidos al interior.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up" data-aos-delay="200">
-                    <div class="d-flex">
-                        <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                 class="bi bi-card-checklist" viewbox="0 0 16 16">
-                                <path
-                                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                                <path
-                                        d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
-                            </svg>
-                        </div>
-                        <div class="col-md-9 flex-fill">
-                            <h3 class="h5 my-2">Atención Personalizada y Cercana</h3>
-                            <p>Cada cliente es único, y entendemos que sus necesidades también lo son. Por eso,
-                                ofrecemos una
-                                atención personalizada que va más allá de una simple transacción.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="d-flex">
-                        <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                 class="bi bi-window-sidebar" viewbox="0 0 16 16">
-                                <path
-                                        d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                                <path
-                                        d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1h12zM1 13V6h4v8H2a1 1 0 0 1-1-1zm5 1V6h9v7a1 1 0 0 1-1 1H6z"/>
-                            </svg>
-                        </div>
-                        <div class="col-md-9 flex-fill">
-                            <h3 class="h5 my-2">Experiencia y Trayectoria</h3>
-                            <p>Con más de una década en el mercado, hemos construido relaciones sólidas con proveedores
-                                y clientes,
-                                lo que nos permite tener un stock confiable y precios competitivos.</p>
-                        </div>
-                    </div>
-                </div>
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-            </div>
-        </div>
-    </div>
-
-
-</main>
-
-<footer>
-    <div class="container small border-top">
-        <div class="row py-5 d-flex justify-content-between">
-
-            <div class="col-12 col-lg-6 col-xl-3 border-end p-5">
-
-                <address class="text-secondary mt-3">
-                    <strong>DisCor</strong><br>
-                    Lorenzo Barcalá 665<br>
-                    Córdoba<br>
-                    <abbr title="Phone"></abbr>
-                    351 763-8778
-                </address>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-3 border-end p-5">
-                <h3 class="h6 mb-3">Sitio</h3>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link link-secondary ps-0" aria-current="page" href="#services">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-secondary ps-0" href="#testimonials">Opiniones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-secondary ps-0" href="#numbers">Números</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-secondary ps-0" href="#workwithus">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-3 border-end p-5">
-                <h3 class="h6 mb-3">Productos</h3>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <p class="nav-link link-secondary ps-0" aria-current="page">Manijas</p>
-                    </li>
-                    <li class="nav-item">
-                        <p class="nav-link link-secondary ps-0">Cable Comando</p>
-                    </li>
-                    <li class="nav-item">
-                        <p class="nav-link link-secondary ps-0">Cilindros</p>
-                    </li>
-                    <li class="nav-item">
-                        <p class="nav-link link-secondary ps-0">Cerrajería</p>
-                    </li>
-
-                    <li class="nav-item">
-                        <p class="nav-link link-secondary ps-0">Espejos</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-3 p-5">
-                <h3 class="h6 mb-3">Contacto</h3>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link link-secondary ps-0" aria-current="page" href="tel:3517638778">351
-                            763-8778</a>
-                        <a class="nav-link link-secondary ps-0" aria-current="page"
-                           href="api.whatsapp.com/send/?phone=5493517638778">WhatsApp</a>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-</footer>
-
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 800, // values from 0 to 3000, with step 50ms
-    });
-</script>
-
-<script>
-    let scrollpos = window.scrollY
-    const header = document.querySelector(".navbar")
-    const header_height = header.offsetHeight
-
-    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
-    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
-
-    window.addEventListener('scroll', function () {
-        scrollpos = window.scrollY;
-
-        if (scrollpos >= header_height) {
-            add_class_on_scroll()
-        } else {
-            remove_class_on_scroll()
-        }
-
-        console.log(scrollpos)
-    })
-</script>
-
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.backgroundColor = 'rgba(255,255,255,0.98)';
+                navbar.style.padding = '12px 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.backgroundColor = 'rgba(255,255,255,1)';
+                navbar.style.padding = '18px 0';
+            }
+        });
+    </script>
 </body>
-
 </html>
