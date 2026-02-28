@@ -412,7 +412,7 @@ function mapProductToTemplateData(product, { baseUrl, imageBaseUrl, outputOverri
   const noImageSvg = `<div class="no-image"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span>Sin imagen disponible</span></div>`;
   const hasRealImage = true; // always attempt: onerror handles missing images
   const productImageHtml = hasRealImage
-    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="this.style.display='none';this.nextElementSibling.hidden=false">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" hidden>')}`
+    ? `<img src="${escapeAttr(productImageUrl)}" alt="${escapeAttr(productImageAlt)}" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">\n${noImageSvg.replace('<div class="no-image">', '<div class="no-image" style="display:none">')}`
     : noImageSvg;
   const attributesSection = attributePills.length > 0
     ? `<div class="attributes">${attributePills.join("\n        ")}</div>`
@@ -635,6 +635,7 @@ function renderProductIndexPage(pages, siteUrl) {
       --ink:#111814; --muted:#5a6b61; --line:#daeae2; --soft:#f4fbf7;
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; }
+    [hidden] { display: none !important; }
     body { font-family:'Inter','Segoe UI',sans-serif; color:var(--ink); background:linear-gradient(180deg,#f8fcfa 0,#f2faf5 100%); min-height:100vh; }
     a { color:inherit; text-decoration:none; }
     .wrap { width:min(calc(100% - 2.5rem),1120px); margin:0 auto; }
