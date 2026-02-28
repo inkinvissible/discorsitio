@@ -609,6 +609,7 @@ function renderProductIndexPage(pages, siteUrl) {
     ].join(" ");
   }).join("\n");
 
+  const categories = [...new Set(sorted.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "es"));
   const categoryOptions = categories.map((c) => `<option value="${escapeAttr(c)}">${escapeHtml(c)}</option>`).join("");
   const vehicleBrandOptions = vehicleBrands.map((b) => `<option value="${escapeAttr(b)}">${escapeHtml(b)}</option>`).join("");
   const now = new Date().toISOString().slice(0, 10);
