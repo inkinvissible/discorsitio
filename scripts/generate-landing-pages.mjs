@@ -34,6 +34,13 @@ async function main() {
     throw new Error("--output is only valid for file source mode.");
   }
 
+  if (args.output) {
+    const base = path.basename(args.output);
+    if (base !== args.output || args.output.includes("..") || path.isAbsolute(args.output)) {
+      throw new Error("--output must be a plain filename with no path separators or traversal sequences.");
+    }
+  }
+
   const template = await readFile(templatePath, "utf8");
   const products = await loadProducts({ source, args });
 
