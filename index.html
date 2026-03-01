@@ -63,12 +63,13 @@
             --brand-soft: #f3faf6;
         }
 
-        html { scroll-padding-top: 110px; }
+        html { scroll-padding-top: 110px; overflow-x: hidden; }
 
         body {
             font-family: 'Inter', sans-serif;
             color: #111814;
             background: linear-gradient(180deg, #ffffff 0%, #f8fcfa 100%);
+            overflow-x: hidden;
         }
 
         /* Global Spacing */
@@ -157,6 +158,7 @@
             background: url('img/bg.jpg') center center / cover no-repeat;
             padding: 190px 0 120px;
             color: #fff;
+            overflow: hidden;
         }
         @media (max-width: 991px) {
             .hero-section { padding: 150px 0 90px; }
@@ -582,7 +584,7 @@
         <div class="container hero-content">
             <div class="row align-items-center g-5">
                 <div class="col-lg-8 col-xl-7" data-aos="fade-up">
-                    <span class="badge bg-brand text-white px-4 py-2 rounded-pill mb-4 fs-6 border border-light border-opacity-25 shadow-sm">Mayorista en Córdoba de cerrajería y accesorios</span>
+                    <span class="badge bg-brand text-white px-4 py-2 rounded-pill mb-4 fs-6 border border-light border-opacity-25 shadow-sm text-wrap">Mayorista en Córdoba de cerrajería y accesorios</span>
                     <h1 class="display-3 fw-bold mb-4 text-white lh-sm">El Mayorista de <span class="text-brand">Autopoartes</span> para tu Negocio</h1>
                     <p class="lead mb-4 opacity-75 pe-lg-5 fs-4 lh-base">Abastecemos a talleres, casas de repuestos y distribuidores con stock de alta rotación, respuesta inmediata y entregas en el día.</p>
                     
