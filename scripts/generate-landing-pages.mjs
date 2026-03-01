@@ -734,7 +734,6 @@ function renderProductIndexPage(pages, siteUrl) {
         <img src="../img/logo.png" alt="DisCor">
         <span>Catálogo</span>
       </a>
-      <a class="nav-cta" href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
     </div>
   </nav>
 
