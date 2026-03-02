@@ -9,6 +9,9 @@
     <meta name="geo.placename" content="Córdoba, Argentina">
     <title>DisCor | Distribuidor Mayorista de Autopartes y Cerrajería en Córdoba</title>
     <link rel="canonical" href="https://discor.com.ar/">
+    <link rel="preload" href="img/bg.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="./fonts/inter-v12-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/inter-v12-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -541,7 +544,7 @@
     </script>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navScroll">
+<body>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BTJG46NPC"></script>
@@ -558,7 +561,7 @@
             <a class="navbar-brand pe-4" href="/">
                 <img src="img/logo.png" style="height: 42px;" alt="Logo DisCor">
             </a>
-            <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+            <button class="navbar-toggler border-0 shadow-none p-2" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -919,29 +922,70 @@
     </a>
 
     <!-- Scripts -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearNode = document.getElementById('year');
+            if (yearNode) {
+                yearNode.textContent = new Date().getFullYear();
+            }
 
-        document.getElementById('year').textContent = new Date().getFullYear();
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('shadow-sm');
+                        navbar.style.backgroundColor = 'rgba(255,255,255,0.98)';
+                        navbar.style.padding = '12px 0';
+                    } else {
+                        navbar.classList.remove('shadow-sm');
+                        navbar.style.backgroundColor = 'rgba(255,255,255,1)';
+                        navbar.style.padding = '18px 0';
+                    }
+                }, { passive: true });
+            }
 
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-sm');
-                navbar.style.backgroundColor = 'rgba(255,255,255,0.98)';
-                navbar.style.padding = '12px 0';
-            } else {
-                navbar.classList.remove('shadow-sm');
-                navbar.style.backgroundColor = 'rgba(255,255,255,1)';
-                navbar.style.padding = '18px 0';
+            const navToggleButton = document.querySelector('.navbar-toggler');
+            const navMenu = document.getElementById('navbarNav');
+            if (navToggleButton && navMenu) {
+                navToggleButton.addEventListener('click', () => {
+                    const isOpen = navMenu.classList.toggle('show');
+                    navToggleButton.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                navMenu.querySelectorAll('.nav-link').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth < 992 && navMenu.classList.contains('show')) {
+                            navMenu.classList.remove('show');
+                            navToggleButton.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
             }
         });
+
+        window.addEventListener('load', () => {
+            const loadAos = () => {
+                const aosScript = document.createElement('script');
+                aosScript.src = 'js/aos.js';
+                aosScript.defer = true;
+                aosScript.onload = () => {
+                    if (window.AOS) {
+                        window.AOS.init({
+                            duration: 800,
+                            once: true,
+                            offset: 100
+                        });
+                    }
+                };
+                document.body.appendChild(aosScript);
+            };
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(loadAos, { timeout: 2000 });
+            } else {
+                setTimeout(loadAos, 1200);
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
