@@ -9,9 +9,8 @@
     <meta name="geo.placename" content="Córdoba, Argentina">
     <title>DisCor | Distribuidor Mayorista de Autopartes y Cerrajería en Córdoba</title>
     <link rel="canonical" href="https://discor.com.ar/">
-    <link rel="preload" href="img/bg.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="./fonts/inter-v12-latin-500.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./fonts/inter-v12-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="img/bg-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" href="img/bg-desktop.webp" as="image" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -42,21 +41,21 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 300;
-            font-display: swap;
+            font-display: optional;
             src: local(''), url('./fonts/inter-v12-latin-300.woff2') format('woff2');
         }
         @font-face {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 500;
-            font-display: swap;
+            font-display: optional;
             src: local(''), url('./fonts/inter-v12-latin-500.woff2') format('woff2');
         }
         @font-face {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
-            font-display: swap;
+            font-display: optional;
             src: local(''), url('./fonts/inter-v12-latin-700.woff2') format('woff2');
         }
         
@@ -159,6 +158,8 @@
         .hero-section {
             position: relative;
             background: url('img/bg.jpg') center center / cover no-repeat;
+            background-image: -webkit-image-set(url('img/bg-desktop.webp') 1x, url('img/bg.jpg') 1x);
+            background-image: image-set(url('img/bg-desktop.webp') type('image/webp') 1x, url('img/bg.jpg') type('image/jpeg') 1x);
             padding: 190px 0 120px;
             color: #fff;
             overflow: hidden;
@@ -287,6 +288,17 @@
             position: relative;
             z-index: 1;
         }
+        @supports (content-visibility: auto) {
+            #rubros,
+            #operacion,
+            #logistica,
+            #opiniones,
+            #contacto,
+            .footer-dark {
+                content-visibility: auto;
+                contain-intrinsic-size: 1px 960px;
+            }
+        }
         .benefit-col p {
             max-width: 22rem;
             margin-left: auto;
@@ -405,9 +417,17 @@
 
         /* ── Responsive typography ── */
         @media (max-width: 767px) {
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            }
+            .hero-section {
+                background-image: -webkit-image-set(url('img/bg-mobile.webp') 1x, url('img/bg.jpg') 1x);
+                background-image: image-set(url('img/bg-mobile.webp') type('image/webp') 1x, url('img/bg.jpg') type('image/jpeg') 1x);
+            }
             .display-3 { font-size: 2.4rem !important; line-height: 1.15; }
             .display-4 { font-size: 1.9rem !important; line-height: 1.2; }
             .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .step-number-bg { font-family: inherit; }
         }
         @media (max-width: 575px) {
             .display-3 { font-size: 2rem !important; }
@@ -420,6 +440,10 @@
 
         /* ── Mobile Navbar ── */
         @media (max-width: 991px) {
+            #navScroll {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
             #navbarNav {
                 border-top: 1px solid rgba(0, 0, 0, 0.07);
                 margin-top: 0.75rem;
@@ -559,7 +583,7 @@
     <nav id="navScroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm transition-all" style="padding: 18px 0;" tabindex="0">
         <div class="container">
             <a class="navbar-brand pe-4" href="/">
-                <img src="img/logo.png" style="height: 42px;" alt="Logo DisCor">
+                <img src="img/logo.png" style="height: 42px;" alt="Logo DisCor" width="300" height="52" decoding="async">
             </a>
             <button class="navbar-toggler border-0 shadow-none p-2" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
@@ -655,7 +679,7 @@
                 <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
                     <h2 class="display-4 fw-bold mb-4">Catálogo con <span class="text-brand">Demanda Real</span></h2>
                     <p class="lead text-muted mb-4 fs-4">Nuestro portafolio está enfocado en las piezas de mayor rotación para que mantengas tu nivel de reparación y ventas sin interrupciones.</p>
-                    <img src="img/catalogue-image.webp" alt="Catálogo DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy">
+                    <img src="img/catalogue-image-optimized.webp" alt="Catálogo DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy" decoding="async" fetchpriority="low" width="900" height="703">
                 </div>
                 
                 <!-- Right side: Grid of categories -->
@@ -764,7 +788,7 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img src="img/camioneta.jpg" alt="Logística DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy">
+                    <img src="img/camioneta.webp" alt="Logística DisCor" class="img-fluid rounded-4 shadow-lg border border-light border-5" loading="lazy" decoding="async" fetchpriority="low" width="1200" height="1800">
                 </div>
                 <div class="col-lg-6 px-lg-5" data-aos="fade-left">
                     <span class="badge bg-brand-light text-brand px-4 py-2 rounded-pill mb-4 fw-bold fs-6 border border-success border-opacity-50">Logística Propia</span>
@@ -853,7 +877,7 @@
 
                 <!-- Brand col -->
                 <div class="col-lg-5 col-xl-4 footer-brand-col pe-lg-5">
-                    <img src="img/logo.png" alt="Logo DisCor" style="height: 38px; filter: brightness(0) invert(1);" class="mb-4">
+                    <img src="img/logo.png" alt="Logo DisCor" style="height: 38px; filter: brightness(0) invert(1);" class="mb-4" width="300" height="52" loading="lazy" decoding="async">
                     <p class="mb-4" style="font-size:0.95rem; line-height:1.75;">Distribuidor mayorista de cerrajería y accesorios para vehículos. Stock permanente y entregas en el día para talleres y repuesteros en Córdoba.</p>
                     <a href="https://clientes.discor.com.ar" target="_blank" class="btn btn-brand rounded-pill px-4 py-2 fw-bold">
                         Acceder al Área Clientes
