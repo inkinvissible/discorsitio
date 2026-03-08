@@ -1192,17 +1192,17 @@ function sleep(ms) {
 
 async function generateCategoryPages(generatedPages, siteUrl, outputDir) {
   const categories = [...new Set(generatedPages.map((p) => p.category))];
-  const catDir = require('path').join(outputDir, "category");
-  await require('node:fs/promises').mkdir(catDir, { recursive: true });
+  const catDir = path.join(outputDir, "category");
+  await mkdir(catDir, { recursive: true });
 
   for (const cat of categories) {
     if (!cat || cat === "Sin categoría") continue;
     const slug = slugify(cat);
     const catPages = generatedPages.filter(p => p.category === cat);
     const catHtml = renderProductIndexPage(catPages, siteUrl, cat);
-    const catPath = require('path').join(catDir, slug + ".html");
-    await require('node:fs/promises').writeFile(catPath, catHtml, "utf8");
-    console.log("Generated " + require('path').relative(process.cwd(), catPath));
+    const catPath = path.join(catDir, slug + ".html");
+    await writeFile(catPath, catHtml, "utf8");
+    console.log("Generated " + path.relative(process.cwd(), catPath));
   }
 }
 
