@@ -845,15 +845,13 @@ ${cards}
           <a href="${assetPrefix}index.html">Inicio</a>
           <a href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
           <a href="https://wa.me/5493517638778" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="${assetPrefix}terms.html">Términos</a>
         </nav>
       </div>
       <hr class="footer-hr">
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
         <div>
-          <a href="${assetPrefix}products/sitemap.html">Mapa del Sitio</a> |
-          <a href="${assetPrefix}terms.html">Términos y Condiciones</a>
+          <a href="${assetPrefix}products/sitemap.html">Mapa del Sitio</a>
         </div>
       </div>
     </div>
