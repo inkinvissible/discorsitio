@@ -706,6 +706,53 @@
         <p class="no-results" id="no-results" hidden>No hay resultados para los filtros seleccionados.</p>
       </section>
 
+      
+        <style>
+          .related-section { margin-top: 2.5rem; }
+          .related-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--ink); }
+          .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+          .related-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; text-decoration: none; }
+          .related-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,43,16,0.08); border-color: #b7d9c6; }
+          .related-img { height: 140px; background: #eef8f2; overflow: hidden; display:flex; align-items:center; justify-content:center; }
+          .related-img img { width: 100%; height: 100%; object-fit: cover; }
+          .related-info { padding: 1.1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+          .related-sku { font-size: 0.75rem; color: var(--muted); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin: 0; }
+          .related-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin: 0; }
+        </style>
+        <section class="related-section" aria-labelledby="related-title">
+          <h2 id="related-title">Productos Relacionados</h2>
+          <div class="related-grid">
+        <a href="./perno-hueco-bisagra-trafic-1988-a-1992-912210.html" class="related-card">
+           <div class="related-img"><img src="https://imagenes.discor.com.ar/912210.jpg" alt="Perno Hueco Bisagra" onerror="this.parentNode.style.display='none'"></div>
+           <div class="related-info">
+             <p class="related-sku">SKU 912210</p>
+             <h3 class="related-title">Perno Hueco Bisagra</h3>
+           </div>
+        </a>
+        <a href="./perno-bisagra-de-puerta-12-1971-a-1977-911800.html" class="related-card">
+           <div class="related-img"><img src="https://imagenes.discor.com.ar/911800.jpg" alt="Perno Bisagra de Puerta" onerror="this.parentNode.style.display='none'"></div>
+           <div class="related-info">
+             <p class="related-sku">SKU 911800</p>
+             <h3 class="related-title">Perno Bisagra de Puerta</h3>
+           </div>
+        </a>
+        <a href="./perno-bisagra-de-puerta-12-1971-a-1977-911900.html" class="related-card">
+           <div class="related-img"><img src="https://imagenes.discor.com.ar/911900.jpg" alt="Perno Bisagra de Puerta" onerror="this.parentNode.style.display='none'"></div>
+           <div class="related-info">
+             <p class="related-sku">SKU 911900</p>
+             <h3 class="related-title">Perno Bisagra de Puerta</h3>
+           </div>
+        </a>
+        <a href="./perno-de-bisagra-de-puerta-duna-duna-wekeend-uno-5-pu-1988-a-2000-fiorino-1995-a-2004-905600.html" class="related-card">
+           <div class="related-img"><img src="https://imagenes.discor.com.ar/905600.jpg" alt="Perno de Bisagra de Puerta" onerror="this.parentNode.style.display='none'"></div>
+           <div class="related-info">
+             <p class="related-sku">SKU 905600</p>
+             <h3 class="related-title">Perno de Bisagra de Puerta</h3>
+           </div>
+        </a></div>
+        </section>
+      
+
     </div>
   </main>
 
@@ -726,7 +773,10 @@
       <hr class="footer-hr">
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
-        <a href="../terms.html">Términos y Condiciones</a>
+        <div>
+          <a href="../products/sitemap.html">Mapa del Sitio</a> |
+          <a href="../terms.html">Términos y Condiciones</a>
+        </div>
       </div>
     </div>
   </footer>

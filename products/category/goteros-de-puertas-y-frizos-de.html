@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repuestos de GOTEROS DE PUERTAS Y FRIZOS DE | DisCor Mayorista</title>
+  <meta name="description" content="Catálogo mayorista de GOTEROS DE PUERTAS Y FRIZOS DE. Repuestos, autopartes y cerrajería con compatibilidades por vehículo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://discor.com.ar/products/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+  <style>
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-300.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-700.woff2') format('woff2'); }
+
+    :root {
+      --green:#00ac41; --deep:#006024; --dark:#002b10;
+      --ink:#111814; --muted:#5a6b61; --line:#daeae2; --soft:#f4fbf7;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; }
+    [hidden] { display: none !important; }
+    body { font-family:'Inter','Segoe UI',sans-serif; color:var(--ink); background:linear-gradient(180deg,#f8fcfa 0,#f2faf5 100%); min-height:100vh; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(calc(100% - 2.5rem),1120px); margin:0 auto; }
+
+    /* Nav */
+    .site-nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+    .nav-row { height:68px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-brand { display:flex; align-items:center; gap:.6rem; }
+    .nav-brand img { height:34px; }
+    .nav-brand span { font-size:.82rem; color:var(--muted); padding-left:.6rem; border-left:1px solid var(--line); }
+    .nav-cta { background:var(--green); color:#fff!important; font-weight:700; font-size:.88rem; padding:.5rem 1.1rem; border-radius:999px; transition:background .2s; }
+    .nav-cta:hover { background:var(--deep); }
+
+    /* Search / filter bar */
+    .search-bar { background:#fff; border-bottom:1px solid var(--line); padding:.85rem 0 .75rem; }
+    .search-input-wrap { position:relative; margin-bottom:.65rem; }
+    .search-input-wrap svg { position:absolute; left:.75rem; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; }
+    input[type=search] {
+      width:100%; padding:.58rem .75rem .58rem 2.25rem;
+      border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.92rem; color:var(--ink);
+      background:#fff; transition:border-color .2s, box-shadow .2s;
+    }
+    input[type=search]:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+
+    .filter-row { display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-end; }
+    .filter-group { display:flex; flex-direction:column; gap:.25rem; }
+    .filter-group label { font-size:.72rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
+    select.filter {
+      padding:.5rem .7rem; border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.88rem; color:var(--ink);
+      background:#fff; cursor:pointer; min-width:140px;
+    }
+    select.filter:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+    select.filter:disabled { background:#f5f5f5; color:var(--muted); cursor:not-allowed; }
+
+    .filter-divider { width:1px; background:var(--line); height:38px; align-self:flex-end; margin:0 .35rem; }
+    .vehicle-badge { font-size:.72rem; font-weight:700; color:var(--green); background:rgba(0,172,65,.08); border:1px solid rgba(0,172,65,.2); border-radius:999px; padding:.15rem .55rem; align-self:flex-end; margin-bottom:.45rem; white-space:nowrap; }
+
+    /* Results header */
+    .results-meta { padding:.75rem 0 .5rem; display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .results-count { font-size:.88rem; color:var(--muted); }
+    .date-note { font-size:.8rem; color:var(--muted); }
+
+    /* Card grid */
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:.85rem; padding-bottom:3rem; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; gap:.55rem; transition:box-shadow .25s, transform .25s; }
+    .card:hover { box-shadow:0 8px 28px rgba(0,43,16,.09); transform:translateY(-3px); border-color:#b7d9c6; }
+    .card-img { background:#eef8f2; height:140px; overflow:hidden; flex-shrink:0; }
+    .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .card > :not(.card-img) { padding:0 1.1rem; }
+    .card > .sku { padding-top:.75rem; }
+    .card > .card-link { padding-bottom:1.1rem; }
+    .sku { color:var(--muted); font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+    .card h2 { font-size:1rem; line-height:1.3; font-weight:700; }
+    .card h2 a:hover { color:var(--green); }
+    .desc { color:var(--muted); font-size:.88rem; line-height:1.5; flex:1; }
+    .card-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.2rem; }
+    .pill { background:var(--soft); border:1px solid var(--line); color:var(--deep); font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:999px; }
+    .card-link { color:var(--green); font-weight:700; font-size:.88rem; margin-top:.25rem; }
+    .card-link:hover { color:var(--deep); }
+    .no-results { grid-column:1/-1; text-align:center; padding:3rem 1rem; color:var(--muted); }
+    .no-results strong { display:block; font-size:1.1rem; color:var(--ink); margin-bottom:.5rem; }
+
+    /* Footer */
+    .site-footer { background:linear-gradient(160deg,#001a0a 0%,#002b10 100%); color:rgba(255,255,255,.55); font-size:.88rem; }
+    .footer-inner { padding:2rem 0 1.25rem; display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .footer-brand img { height:30px; filter:brightness(0) invert(1); margin-bottom:.5rem; display:block; }
+    .footer-links { display:flex; gap:1.75rem; }
+    .footer-links a { color:rgba(255,255,255,.5); transition:color .2s; }
+    .footer-links a:hover { color:var(--green); }
+    .footer-hr { border:none; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-bottom { padding:.85rem 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; color:rgba(255,255,255,.3); font-size:.8rem; }
+
+    @media (max-width:640px) {
+      .filter-row { flex-direction:column; align-items:stretch; }
+      .filter-divider { width:100%; height:1px; margin:.1rem 0; }
+      .vehicle-badge { align-self:flex-start; }
+      select.filter { min-width:0; width:100%; }
+      .footer-inner { flex-direction:column; gap:1.25rem; }
+      .footer-links { flex-wrap:wrap; gap:.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap nav-row">
+      <a class="nav-brand" href="../index.html">
+        <img src="../img/logo.png" alt="DisCor">
+        <span>Catálogo</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="search-bar">
+    <div class="wrap">
+      <div class="search-input-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+        <input type="search" id="q" placeholder="Buscar por nombre, SKU o marca de repuesto…" autocomplete="off">
+      </div>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label>Categoría</label>
+          <select class="filter" id="f-cat"><option value="">Todas las categorías</option><option value="GOTEROS DE PUERTAS Y FRIZOS DE">GOTEROS DE PUERTAS Y FRIZOS DE</option></select>
+        </div>
+        <div class="filter-divider" aria-hidden="true"></div>
+        <span class="vehicle-badge">🚗 Por vehículo</span>
+        <div class="filter-group">
+          <label>Marca vehículo</label>
+          <select class="filter" id="f-vbrand"><option value="">Todas las marcas</option><option value="FIAT">FIAT</option><option value="FORD">FORD</option><option value="PEUGEOT">PEUGEOT</option><option value="RENAULT">RENAULT</option><option value="VOLKSWAGEN">VOLKSWAGEN</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Modelo</label>
+          <select class="filter" id="f-vmodel" disabled><option value="">Seleccioná marca primero</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Año</label>
+          <select class="filter" id="f-vyear" disabled><option value="">Seleccioná modelo primero</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="results-meta">
+      <span class="results-count" id="results-count">17 productos</span>
+      <span class="date-note">Actualizado el 2026-03-08</span>
+    </div>
+    <section class="grid" id="grid">
+<article class="card" data-name="gotero" data-sku="324715" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;SAVEIRO&quot;,&quot;ys&quot;:1998,&quot;ye&quot;:2014}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/324715.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 324715</p> <h2><a href="../gotero-saveiro-1998-a-2014-324715.html">Gotero</a></h2> <p class="desc">Juego de goteros para Volkswagen Saveiro modelos 1996 a 1999.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-saveiro-1998-a-2014-324715.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="324713" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;GOL / COUNTRY&quot;,&quot;ys&quot;:2000,&quot;ye&quot;:2014}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/324713.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 324713</p> <h2><a href="../gotero-gol-country-2000-a-2014-324713.html">Gotero</a></h2> <p class="desc">Juego de goteros para Volkswagen Gol III y Volkswagen Gol IV Generación de 5 puertas, modelos fabricados entre 2000 y 2005.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-gol-country-2000-a-2014-324713.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="324712" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;GOL / COUNTRY&quot;,&quot;ys&quot;:2000,&quot;ye&quot;:2014}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/324712.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 324712</p> <h2><a href="../gotero-gol-country-2000-a-2014-324712.html">Gotero</a></h2> <p class="desc">Juego de goteros para Volkswagen Gol III y IV Generación de 3 puertas, compatible con modelos fabricados entre 2000 y 2005.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-gol-country-2000-a-2014-324712.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="324711" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;GOL / COUNTRY&quot;,&quot;ys&quot;:1996,&quot;ye&quot;:1999}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/324711.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 324711</p> <h2><a href="../gotero-gol-country-1996-a-1999-324711.html">Gotero</a></h2> <p class="desc">Juego de goteros para Volkswagen Gol de 5 puertas, modelos fabricados entre 1996 y 2000.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-gol-country-1996-a-1999-324711.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="324710" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;GOL / COUNTRY&quot;,&quot;ys&quot;:1996,&quot;ye&quot;:1999}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/324710.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 324710</p> <h2><a href="../gotero-gol-country-1996-a-1999-324710.html">Gotero</a></h2> <p class="desc">Juego de goteros para Volkswagen Gol de 3 puertas, modelos 1996 a 2000.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-gol-country-1996-a-1999-324710.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="320800" data-brand="DODGE / VOLKSWAGEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;SAVEIRO&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1997},{&quot;b&quot;:&quot;VOLKSWAGEN&quot;,&quot;m&quot;:&quot;SENDA&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1996}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/320800.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 320800</p> <h2><a href="../gotero-saveiro-1991-a-1997-senda-1991-a-1996-320800.html">Gotero</a></h2> <p class="desc">Juego de goteros de color negro para Volkswagen Senda.</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-saveiro-1991-a-1997-senda-1991-a-1996-320800.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="312300" data-brand="RENAULT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;11&quot;,&quot;ys&quot;:1983,&quot;ye&quot;:1990},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;11&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1997},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;9&quot;,&quot;ys&quot;:1988,&quot;ye&quot;:1990},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;9&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1997}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/312300.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 312300</p> <h2><a href="../gotero-11-1983-a-1990-9-1988-a-1990-312300.html">Gotero</a></h2> <p class="desc">Juego de goteros de color negro para Renault 9.</p> <div class="card-meta"><span class="pill">RENAULT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-11-1983-a-1990-9-1988-a-1990-312300.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="371004" data-brand="FORD" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;ECOSPORT&quot;,&quot;ys&quot;:2003,&quot;ye&quot;:2012}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/371004.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 371004</p> <h2><a href="../gotero-ecosport-2003-a-2012-371004.html">Gotero</a></h2> <p class="desc">Juego de goteros derecho e izquierdo para Ford Ecosport.</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-ecosport-2003-a-2012-371004.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero" data-sku="371002" data-brand="FORD" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;FIESTA&quot;,&quot;ys&quot;:1996,&quot;ye&quot;:2002}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/371002.jpg" alt="Gotero" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 371002</p> <h2><a href="../gotero-fiesta-1996-a-2002-371002.html">Gotero</a></h2> <p class="desc">Juego de goteros para Ford Fiesta de 5 puertas, modelos 1998 a 2002.</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-fiesta-1996-a-2002-371002.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="319801" data-brand="PEUGEOT / CITROEN" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;PEUGEOT&quot;,&quot;m&quot;:&quot;206&quot;,&quot;ys&quot;:1999,&quot;ye&quot;:2004},{&quot;b&quot;:&quot;PEUGEOT&quot;,&quot;m&quot;:&quot;206&quot;,&quot;ys&quot;:2004,&quot;ye&quot;:2012},{&quot;b&quot;:&quot;PEUGEOT&quot;,&quot;m&quot;:&quot;207&quot;,&quot;ys&quot;:2008,&quot;ye&quot;:2016}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/319801.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 319801</p> <h2><a href="../gotero-de-techo-206-1999-a-2004-207-2008-a-2016-319801.html">Gotero de Techo</a></h2> <p class="desc">Gotero de Techo para Peugeot 206 y Peugeot 207 de 5 Puertas. Se vende por unidad.</p> <div class="card-meta"><span class="pill">PEUGEOT / CITROEN</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-206-1999-a-2004-207-2008-a-2016-319801.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304301" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304301.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304301</p> <h2><a href="../gotero-de-techo-palio-1997-a-2001-siena-1997-a-2001-304301.html">Gotero de Techo</a></h2> <p class="desc">Gotero de Techo Derecho para Fiat Siena y Fiat Palio de 5 Puertas</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-palio-1997-a-2001-siena-1997-a-2001-304301.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304300" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;SIENA&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304300.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304300</p> <h2><a href="../gotero-de-techo-palio-1997-a-2001-siena-1997-a-2001-304300.html">Gotero de Techo</a></h2> <p class="desc">Gotero de Techo Izquierdo para Fiat Siena y Fiat Palio de 5 Puertas</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-palio-1997-a-2001-siena-1997-a-2001-304300.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304100" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;UNO 3 PUERTAS&quot;,&quot;ys&quot;:1988,&quot;ye&quot;:2004}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304100.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304100</p> <h2><a href="../gotero-de-techo-uno-3-puertas-1988-a-2004-304100.html">Gotero de Techo</a></h2> <p class="desc">Juego de goteros de techo para Fiat Uno de 3 puertas, compatible con modelos fabricados entre 1988 y 2004.</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-uno-3-puertas-1988-a-2004-304100.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304000" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;DUNA / DUNA WEKEEND / UNO 5 PU&quot;,&quot;ys&quot;:1988,&quot;ye&quot;:2000}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304000.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304000</p> <h2><a href="../gotero-de-techo-duna-duna-wekeend-uno-5-pu-1988-a-2000-304000.html">Gotero de Techo</a></h2> <p class="desc">Juego de goteros de techo para Fiat Duna (modelos 1988 a 1996) y Fiat Uno (modelos 1988 a 2004).</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-duna-duna-wekeend-uno-5-pu-1988-a-2000-304000.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304303" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304303.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304303</p> <h2><a href="../gotero-de-techo-palio-1997-a-2001-304303.html">Gotero de Techo</a></h2> <p class="desc">Gotero de Techo Izquierdo para Fiat Palio de 3 Puertas</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-palio-1997-a-2001-304303.html">Ver ficha →</a> </article>
+<article class="card" data-name="gotero de techo" data-sku="304302" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2001},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2001,&quot;ye&quot;:2007},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;PALIO&quot;,&quot;ys&quot;:2007,&quot;ye&quot;:2010}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304302.jpg" alt="Gotero de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304302</p> <h2><a href="../gotero-de-techo-palio-1997-a-2001-304302.html">Gotero de Techo</a></h2> <p class="desc">Gotero de Techo Derecho para Fiat Palio de 3 Puertas</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../gotero-de-techo-palio-1997-a-2001-304302.html">Ver ficha →</a> </article>
+<article class="card" data-name="moldura de techo" data-sku="304200" data-brand="FIAT" data-category="GOTEROS DE PUERTAS Y FRIZOS DE" data-compat="[{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;DUNA / DUNA WEKEEND / UNO 5 PU&quot;,&quot;ys&quot;:1988,&quot;ye&quot;:2000},{&quot;b&quot;:&quot;FIAT&quot;,&quot;m&quot;:&quot;UNO 3 PUERTAS&quot;,&quot;ys&quot;:1988,&quot;ye&quot;:2004}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/304200.jpg" alt="Moldura de Techo" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 304200</p> <h2><a href="../moldura-de-techo-duna-duna-wekeend-uno-5-pu-1988-a-2000-uno-3-puertas-1988-a-2004-304200.html">Moldura de Techo</a></h2> <p class="desc">Juego de Molduras de Techo para Fiat Duna y Fiat Uno.</p> <div class="card-meta"><span class="pill">FIAT</span><span class="pill">GOTEROS DE PUERTAS Y FRIZOS DE</span></div> <a class="card-link" href="../moldura-de-techo-duna-duna-wekeend-uno-5-pu-1988-a-2000-uno-3-puertas-1988-a-2004-304200.html">Ver ficha →</a> </article>
+      <div class="no-results" id="no-results" style="display:none">
+        <strong>Sin resultados</strong>
+        Probá con otros términos o borrá los filtros.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="../img/logo.png" alt="DisCor">
+          <p>Distribuidor mayorista de autopartes y cerrajería en Córdoba.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
+          <a href="https://wa.me/5493517638778" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="../terms.html">Términos</a>
+        </nav>
+      </div>
+      <hr class="footer-hr">
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
+        <div>
+          <a href="../../products/sitemap.html">Mapa del Sitio</a> |
+          <a href="../../terms.html">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var brandModels = {"VOLKSWAGEN":["GOL / COUNTRY","SAVEIRO","SENDA"],"RENAULT":["11","9"],"FORD":["ECOSPORT","FIESTA"],"PEUGEOT":["206","207"],"FIAT":["DUNA / DUNA WEKEEND / UNO 5 PU","PALIO","SIENA","UNO 3 PUERTAS"]};
+      var modelYears  = {"VOLKSWAGEN":{"SAVEIRO":[2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995,1994,1993,1992,1991],"GOL / COUNTRY":[2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996],"SENDA":[1996,1995,1994,1993,1992,1991]},"RENAULT":{"9":[1997,1996,1995,1994,1993,1992,1991,1990,1989,1988],"11":[1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983]},"FORD":{"ECOSPORT":[2012,2011,2010,2009,2008,2007,2006,2005,2004,2003],"FIESTA":[2002,2001,2000,1999,1998,1997,1996]},"PEUGEOT":{"206":[2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999],"207":[2016,2015,2014,2013,2012,2011,2010,2009,2008]},"FIAT":{"PALIO":[2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997],"SIENA":[2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997],"UNO 3 PUERTAS":[2004,2003,2002,2001,2000,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988],"DUNA / DUNA WEKEEND / UNO 5 PU":[2000,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988]}};
+
+      var cards    = Array.from(document.querySelectorAll('#grid .card'));
+      var qInput   = document.getElementById('q');
+      var catSel   = document.getElementById('f-cat');
+      var vBrandSel= document.getElementById('f-vbrand');
+      var vModelSel= document.getElementById('f-vmodel');
+      var vYearSel = document.getElementById('f-vyear');
+      var countEl  = document.getElementById('results-count');
+      var noRes    = document.getElementById('no-results');
+      var total    = cards.length;
+
+      function setOptions(sel, opts, placeholder, disabled) {
+        sel.innerHTML = '<option value="">' + placeholder + '</option>' +
+          opts.map(function (o) { return '<option value="' + o + '">' + o + '</option>'; }).join('');
+        sel.disabled = disabled;
+        sel.value = '';
+      }
+
+      function filter() {
+        var q      = qInput.value.toLowerCase().trim();
+        var cat    = catSel.value;
+        var vBrand = vBrandSel.value;
+        var vModel = vModelSel.value;
+        var vYear  = parseInt(vYearSel.value) || 0;
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var matchQ   = !q || card.dataset.name.includes(q) || card.dataset.sku.includes(q) || card.dataset.brand.toLowerCase().includes(q);
+          var matchCat = !cat || card.dataset.category === cat;
+          var matchV   = true;
+
+          if (vBrand || vModel || vYear) {
+            try {
+              var compat = JSON.parse(card.dataset.compat || '[]');
+              matchV = compat.length > 0 && compat.some(function (c) {
+                return (!vBrand || c.b === vBrand) &&
+                       (!vModel || c.m === vModel) &&
+                       (!vYear  || (vYear >= c.ys && vYear <= c.ye));
+              });
+            } catch (e) {
+              matchV = false;
+            }
+          }
+
+          var show = matchQ && matchCat && matchV;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        countEl.textContent = visible + ' de ' + total + ' productos';
+        noRes.style.display = visible > 0 ? 'none' : '';
+      }
+
+      vBrandSel.addEventListener('change', function () {
+        var vb = vBrandSel.value;
+        setOptions(vModelSel, vb ? (brandModels[vb] || []) : [], vb ? 'Todos los modelos' : 'Seleccioná marca primero', !vb);
+        setOptions(vYearSel,  [], 'Seleccioná modelo primero', true);
+        filter();
+      });
+
+      vModelSel.addEventListener('change', function () {
+        var vb = vBrandSel.value, vm = vModelSel.value;
+        var yrs = (vb && vm && modelYears[vb] && modelYears[vb][vm]) ? modelYears[vb][vm] : [];
+        setOptions(vYearSel, yrs, vm ? 'Todos los años' : 'Seleccioná modelo primero', !vm);
+        filter();
+      });
+
+      vYearSel.addEventListener('change', filter);
+      qInput.addEventListener('input', filter);
+      catSel.addEventListener('change', filter);
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repuestos de BOTONES PULSADORES | DisCor Mayorista</title>
+  <meta name="description" content="Catálogo mayorista de BOTONES PULSADORES. Repuestos, autopartes y cerrajería con compatibilidades por vehículo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://discor.com.ar/products/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+  <style>
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-300.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-700.woff2') format('woff2'); }
+
+    :root {
+      --green:#00ac41; --deep:#006024; --dark:#002b10;
+      --ink:#111814; --muted:#5a6b61; --line:#daeae2; --soft:#f4fbf7;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; }
+    [hidden] { display: none !important; }
+    body { font-family:'Inter','Segoe UI',sans-serif; color:var(--ink); background:linear-gradient(180deg,#f8fcfa 0,#f2faf5 100%); min-height:100vh; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(calc(100% - 2.5rem),1120px); margin:0 auto; }
+
+    /* Nav */
+    .site-nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+    .nav-row { height:68px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-brand { display:flex; align-items:center; gap:.6rem; }
+    .nav-brand img { height:34px; }
+    .nav-brand span { font-size:.82rem; color:var(--muted); padding-left:.6rem; border-left:1px solid var(--line); }
+    .nav-cta { background:var(--green); color:#fff!important; font-weight:700; font-size:.88rem; padding:.5rem 1.1rem; border-radius:999px; transition:background .2s; }
+    .nav-cta:hover { background:var(--deep); }
+
+    /* Search / filter bar */
+    .search-bar { background:#fff; border-bottom:1px solid var(--line); padding:.85rem 0 .75rem; }
+    .search-input-wrap { position:relative; margin-bottom:.65rem; }
+    .search-input-wrap svg { position:absolute; left:.75rem; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; }
+    input[type=search] {
+      width:100%; padding:.58rem .75rem .58rem 2.25rem;
+      border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.92rem; color:var(--ink);
+      background:#fff; transition:border-color .2s, box-shadow .2s;
+    }
+    input[type=search]:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+
+    .filter-row { display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-end; }
+    .filter-group { display:flex; flex-direction:column; gap:.25rem; }
+    .filter-group label { font-size:.72rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
+    select.filter {
+      padding:.5rem .7rem; border:1px solid var(--line); border-radius:10px;
+      font-family:inherit; font-size:.88rem; color:var(--ink);
+      background:#fff; cursor:pointer; min-width:140px;
+    }
+    select.filter:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(0,172,65,.12); }
+    select.filter:disabled { background:#f5f5f5; color:var(--muted); cursor:not-allowed; }
+
+    .filter-divider { width:1px; background:var(--line); height:38px; align-self:flex-end; margin:0 .35rem; }
+    .vehicle-badge { font-size:.72rem; font-weight:700; color:var(--green); background:rgba(0,172,65,.08); border:1px solid rgba(0,172,65,.2); border-radius:999px; padding:.15rem .55rem; align-self:flex-end; margin-bottom:.45rem; white-space:nowrap; }
+
+    /* Results header */
+    .results-meta { padding:.75rem 0 .5rem; display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .results-count { font-size:.88rem; color:var(--muted); }
+    .date-note { font-size:.8rem; color:var(--muted); }
+
+    /* Card grid */
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:.85rem; padding-bottom:3rem; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; gap:.55rem; transition:box-shadow .25s, transform .25s; }
+    .card:hover { box-shadow:0 8px 28px rgba(0,43,16,.09); transform:translateY(-3px); border-color:#b7d9c6; }
+    .card-img { background:#eef8f2; height:140px; overflow:hidden; flex-shrink:0; }
+    .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .card > :not(.card-img) { padding:0 1.1rem; }
+    .card > .sku { padding-top:.75rem; }
+    .card > .card-link { padding-bottom:1.1rem; }
+    .sku { color:var(--muted); font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+    .card h2 { font-size:1rem; line-height:1.3; font-weight:700; }
+    .card h2 a:hover { color:var(--green); }
+    .desc { color:var(--muted); font-size:.88rem; line-height:1.5; flex:1; }
+    .card-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.2rem; }
+    .pill { background:var(--soft); border:1px solid var(--line); color:var(--deep); font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:999px; }
+    .card-link { color:var(--green); font-weight:700; font-size:.88rem; margin-top:.25rem; }
+    .card-link:hover { color:var(--deep); }
+    .no-results { grid-column:1/-1; text-align:center; padding:3rem 1rem; color:var(--muted); }
+    .no-results strong { display:block; font-size:1.1rem; color:var(--ink); margin-bottom:.5rem; }
+
+    /* Footer */
+    .site-footer { background:linear-gradient(160deg,#001a0a 0%,#002b10 100%); color:rgba(255,255,255,.55); font-size:.88rem; }
+    .footer-inner { padding:2rem 0 1.25rem; display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .footer-brand img { height:30px; filter:brightness(0) invert(1); margin-bottom:.5rem; display:block; }
+    .footer-links { display:flex; gap:1.75rem; }
+    .footer-links a { color:rgba(255,255,255,.5); transition:color .2s; }
+    .footer-links a:hover { color:var(--green); }
+    .footer-hr { border:none; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-bottom { padding:.85rem 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; color:rgba(255,255,255,.3); font-size:.8rem; }
+
+    @media (max-width:640px) {
+      .filter-row { flex-direction:column; align-items:stretch; }
+      .filter-divider { width:100%; height:1px; margin:.1rem 0; }
+      .vehicle-badge { align-self:flex-start; }
+      select.filter { min-width:0; width:100%; }
+      .footer-inner { flex-direction:column; gap:1.25rem; }
+      .footer-links { flex-wrap:wrap; gap:.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap nav-row">
+      <a class="nav-brand" href="../index.html">
+        <img src="../img/logo.png" alt="DisCor">
+        <span>Catálogo</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="search-bar">
+    <div class="wrap">
+      <div class="search-input-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+        <input type="search" id="q" placeholder="Buscar por nombre, SKU o marca de repuesto…" autocomplete="off">
+      </div>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label>Categoría</label>
+          <select class="filter" id="f-cat"><option value="">Todas las categorías</option><option value="BOTONES PULSADORES">BOTONES PULSADORES</option></select>
+        </div>
+        <div class="filter-divider" aria-hidden="true"></div>
+        <span class="vehicle-badge">🚗 Por vehículo</span>
+        <div class="filter-group">
+          <label>Marca vehículo</label>
+          <select class="filter" id="f-vbrand"><option value="">Todas las marcas</option><option value="DODGE">DODGE</option><option value="FORD">FORD</option><option value="PEUGEOT">PEUGEOT</option><option value="RENAULT">RENAULT</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Modelo</label>
+          <select class="filter" id="f-vmodel" disabled><option value="">Seleccioná marca primero</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Año</label>
+          <select class="filter" id="f-vyear" disabled><option value="">Seleccioná modelo primero</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="results-meta">
+      <span class="results-count" id="results-count">14 productos</span>
+      <span class="date-note">Actualizado el 2026-03-08</span>
+    </div>
+    <section class="grid" id="grid">
+<article class="card" data-name="botón de manija de puerta exterior" data-sku="851400" data-brand="RENAULT" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1971,&quot;ye&quot;:1977},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1978,&quot;ye&quot;:1990}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/851400.jpg" alt="Botón de Manija de Puerta Exterior" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 851400</p> <h2><a href="../boton-de-manija-de-puerta-exterior-12-1971-a-1977-851400.html">Botón de Manija de Puerta Exterior</a></h2> <p class="desc">Botón de Manija de Puerta Exterior Cromado Delantero para Renault 12</p> <div class="card-meta"><span class="pill">RENAULT</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-manija-de-puerta-exterior-12-1971-a-1977-851400.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854804" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1973},{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;F-100 / F-150 / F-350&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1973}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854804.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854804</p> <h2><a href="../boton-de-puerta-camion-1967-a-1973-f-100-f-150-f-350-1967-a-1973-854804.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta para Ford Pick-Up modelos 1967 a 1973 y Ford F-100 modelos 1967 a 1973</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1967-a-1973-f-100-f-150-f-350-1967-a-1973-854804.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854803" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1961,&quot;ye&quot;:1966},{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;F-100 / F-150 / F-350&quot;,&quot;ys&quot;:1961,&quot;ye&quot;:1966}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854803.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854803</p> <h2><a href="../boton-de-puerta-camion-1961-a-1966-f-100-f-150-f-350-1961-a-1966-854803.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta para Ford Pick-Up modelos 1961 a 1966 y Ford F-100</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1961-a-1966-f-100-f-150-f-350-1961-a-1966-854803.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854801" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;FALCON&quot;,&quot;ys&quot;:1962,&quot;ye&quot;:1977}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854801.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854801</p> <h2><a href="../boton-de-puerta-falcon-1962-a-1977-854801.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta Trasero para Ford Falcon modelos 1966 a 1977</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-falcon-1962-a-1977-854801.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854800" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;FALCON&quot;,&quot;ys&quot;:1962,&quot;ye&quot;:1977}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854800.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854800</p> <h2><a href="../boton-de-puerta-falcon-1962-a-1977-854800.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta Delantero para Ford Falcon modelos 1966 a 1977</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-falcon-1962-a-1977-854800.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854806" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1982,&quot;ye&quot;:1992},{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;F-100 / F-150 / F-350&quot;,&quot;ys&quot;:1982,&quot;ye&quot;:1992},{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;F-100 / F-150 / F-350&quot;,&quot;ys&quot;:1993,&quot;ye&quot;:1998}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854806.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854806</p> <h2><a href="../boton-de-puerta-camion-1982-a-1992-f-100-f-150-f-350-1982-a-1992-854806.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta para Ford Pick-Up modelos 1983 a 1988 y Ford F-100 número 4</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1982-a-1992-f-100-f-150-f-350-1982-a-1992-854806.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="854805" data-brand="FORD" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1974,&quot;ye&quot;:1981},{&quot;b&quot;:&quot;FORD&quot;,&quot;m&quot;:&quot;F-100 / F-150 / F-350&quot;,&quot;ys&quot;:1974,&quot;ye&quot;:1981}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/854805.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 854805</p> <h2><a href="../boton-de-puerta-camion-1974-a-1981-f-100-f-150-f-350-1974-a-1981-854805.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta para Ford Pick-Up y Ford F-100, modelos entre 1974 y 1982. Número de pieza: 3.</p> <div class="card-meta"><span class="pill">FORD</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1974-a-1981-f-100-f-150-f-350-1974-a-1981-854805.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="853803" data-brand="DODGE / VOLKSWAGEN" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;DODGE&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1980},{&quot;b&quot;:&quot;DODGE&quot;,&quot;m&quot;:&quot;PICK-UP&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1980}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/853803.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 853803</p> <h2><a href="../boton-de-puerta-camion-1967-a-1980-pick-up-1967-a-1980-853803.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta Izquierdo para Dodge Pick Up y Camión desde 1961 hasta 1980</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1967-a-1980-pick-up-1967-a-1980-853803.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta" data-sku="853804" data-brand="DODGE / VOLKSWAGEN" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;DODGE&quot;,&quot;m&quot;:&quot;CAMION&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1980},{&quot;b&quot;:&quot;DODGE&quot;,&quot;m&quot;:&quot;PICK-UP&quot;,&quot;ys&quot;:1967,&quot;ye&quot;:1980}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/853804.jpg" alt="Botón de Puerta" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 853804</p> <h2><a href="../boton-de-puerta-camion-1967-a-1980-pick-up-1967-a-1980-853804.html">Botón de Puerta</a></h2> <p class="desc">Botón de Puerta Derecho para Pick Up y Camión Dodge modelos 1961 a 1980</p> <div class="card-meta"><span class="pill">DODGE / VOLKSWAGEN</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-camion-1967-a-1980-pick-up-1967-a-1980-853804.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta manija exterior" data-sku="851502" data-brand="RENAULT" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1978,&quot;ye&quot;:1990},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1994}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/851502.jpg" alt="Botón de Puerta Manija Exterior" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 851502</p> <h2><a href="../boton-de-puerta-manija-exterior-12-1978-a-1990-851502.html">Botón de Puerta Manija Exterior</a></h2> <p class="desc">Botón de Puerta para Manija Exterior Trasera de Renault 12, color Negro.</p> <div class="card-meta"><span class="pill">RENAULT</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-manija-exterior-12-1978-a-1990-851502.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta manija exterior" data-sku="851501" data-brand="RENAULT" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1978,&quot;ye&quot;:1990},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1991,&quot;ye&quot;:1994}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/851501.jpg" alt="Botón de Puerta Manija Exterior" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 851501</p> <h2><a href="../boton-de-puerta-manija-exterior-12-1978-a-1990-851501.html">Botón de Puerta Manija Exterior</a></h2> <p class="desc">Botón de Puerta para Manija Exterior Delantero de Renault 12, color Negro.</p> <div class="card-meta"><span class="pill">RENAULT</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-manija-exterior-12-1978-a-1990-851501.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puerta manija exterior" data-sku="851500" data-brand="RENAULT" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1971,&quot;ye&quot;:1977},{&quot;b&quot;:&quot;RENAULT&quot;,&quot;m&quot;:&quot;12&quot;,&quot;ys&quot;:1978,&quot;ye&quot;:1990}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/851500.jpg" alt="Botón de Puerta Manija Exterior" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 851500</p> <h2><a href="../boton-de-puerta-manija-exterior-12-1971-a-1977-851500.html">Botón de Puerta Manija Exterior</a></h2> <p class="desc">Botón de Puerta para Manija Exterior Trasera Cromada para Renault 12</p> <div class="card-meta"><span class="pill">RENAULT</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puerta-manija-exterior-12-1971-a-1977-851500.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puertas" data-sku="852402" data-brand="PEUGEOT / CITROEN" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;PEUGEOT&quot;,&quot;m&quot;:&quot;504&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2000}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/852402.jpg" alt="Botón de Puertas" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 852402</p> <h2><a href="../boton-de-puertas-504-1997-a-2000-852402.html">Botón de Puertas</a></h2> <p class="desc">Botón de Puertas para Peugeot 504</p> <div class="card-meta"><span class="pill">PEUGEOT / CITROEN</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puertas-504-1997-a-2000-852402.html">Ver ficha →</a> </article>
+<article class="card" data-name="botón de puertas manija exterior" data-sku="852403" data-brand="PEUGEOT / CITROEN" data-category="BOTONES PULSADORES" data-compat="[{&quot;b&quot;:&quot;PEUGEOT&quot;,&quot;m&quot;:&quot;504&quot;,&quot;ys&quot;:1997,&quot;ye&quot;:2000}]"> <div class="card-img"><img src="https://imagenes.discor.com.ar/852403.jpg" alt="Botón de Puertas Manija Exterior" loading="lazy" onerror="this.parentNode.style.display=&#39;none&#39;"></div> <p class="sku">SKU 852403</p> <h2><a href="../boton-de-puertas-manija-exterior-504-1997-a-2000-852403.html">Botón de Puertas Manija Exterior</a></h2> <p class="desc">Botón de Puertas para Manija Exterior para Peugeot 404</p> <div class="card-meta"><span class="pill">PEUGEOT / CITROEN</span><span class="pill">BOTONES PULSADORES</span></div> <a class="card-link" href="../boton-de-puertas-manija-exterior-504-1997-a-2000-852403.html">Ver ficha →</a> </article>
+      <div class="no-results" id="no-results" style="display:none">
+        <strong>Sin resultados</strong>
+        Probá con otros términos o borrá los filtros.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="../img/logo.png" alt="DisCor">
+          <p>Distribuidor mayorista de autopartes y cerrajería en Córdoba.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
+          <a href="https://wa.me/5493517638778" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="../terms.html">Términos</a>
+        </nav>
+      </div>
+      <hr class="footer-hr">
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
+        <div>
+          <a href="../../products/sitemap.html">Mapa del Sitio</a> |
+          <a href="../../terms.html">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var brandModels = {"RENAULT":["12"],"FORD":["CAMION","F-100 / F-150 / F-350","FALCON"],"DODGE":["CAMION","PICK-UP"],"PEUGEOT":["504"]};
+      var modelYears  = {"RENAULT":{"12":[1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1973,1972,1971]},"FORD":{"CAMION":[1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967,1966,1965,1964,1963,1962,1961],"F-100 / F-150 / F-350":[1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967,1966,1965,1964,1963,1962,1961],"FALCON":[1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967,1966,1965,1964,1963,1962]},"DODGE":{"CAMION":[1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967],"PICK-UP":[1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967]},"PEUGEOT":{"504":[2000,1999,1998,1997]}};
+
+      var cards    = Array.from(document.querySelectorAll('#grid .card'));
+      var qInput   = document.getElementById('q');
+      var catSel   = document.getElementById('f-cat');
+      var vBrandSel= document.getElementById('f-vbrand');
+      var vModelSel= document.getElementById('f-vmodel');
+      var vYearSel = document.getElementById('f-vyear');
+      var countEl  = document.getElementById('results-count');
+      var noRes    = document.getElementById('no-results');
+      var total    = cards.length;
+
+      function setOptions(sel, opts, placeholder, disabled) {
+        sel.innerHTML = '<option value="">' + placeholder + '</option>' +
+          opts.map(function (o) { return '<option value="' + o + '">' + o + '</option>'; }).join('');
+        sel.disabled = disabled;
+        sel.value = '';
+      }
+
+      function filter() {
+        var q      = qInput.value.toLowerCase().trim();
+        var cat    = catSel.value;
+        var vBrand = vBrandSel.value;
+        var vModel = vModelSel.value;
+        var vYear  = parseInt(vYearSel.value) || 0;
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var matchQ   = !q || card.dataset.name.includes(q) || card.dataset.sku.includes(q) || card.dataset.brand.toLowerCase().includes(q);
+          var matchCat = !cat || card.dataset.category === cat;
+          var matchV   = true;
+
+          if (vBrand || vModel || vYear) {
+            try {
+              var compat = JSON.parse(card.dataset.compat || '[]');
+              matchV = compat.length > 0 && compat.some(function (c) {
+                return (!vBrand || c.b === vBrand) &&
+                       (!vModel || c.m === vModel) &&
+                       (!vYear  || (vYear >= c.ys && vYear <= c.ye));
+              });
+            } catch (e) {
+              matchV = false;
+            }
+          }
+
+          var show = matchQ && matchCat && matchV;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        countEl.textContent = visible + ' de ' + total + ' productos';
+        noRes.style.display = visible > 0 ? 'none' : '';
+      }
+
+      vBrandSel.addEventListener('change', function () {
+        var vb = vBrandSel.value;
+        setOptions(vModelSel, vb ? (brandModels[vb] || []) : [], vb ? 'Todos los modelos' : 'Seleccioná marca primero', !vb);
+        setOptions(vYearSel,  [], 'Seleccioná modelo primero', true);
+        filter();
+      });
+
+      vModelSel.addEventListener('change', function () {
+        var vb = vBrandSel.value, vm = vModelSel.value;
+        var yrs = (vb && vm && modelYears[vb] && modelYears[vb][vm]) ? modelYears[vb][vm] : [];
+        setOptions(vYearSel, yrs, vm ? 'Todos los años' : 'Seleccioná modelo primero', !vm);
+        filter();
+      });
+
+      vYearSel.addEventListener('change', filter);
+      qInput.addEventListener('input', filter);
+      catSel.addEventListener('change', filter);
+    })();
+  </script>
+
+</body>
+</html>
