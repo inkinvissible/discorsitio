@@ -784,8 +784,8 @@ function renderProductIndexPage(pages, siteUrl, categoryName = null) {
 
   <nav class="site-nav">
     <div class="wrap nav-row">
-      <a class="nav-brand" href="../index.html">
-        <img src="../img/logo.png" alt="DisCor">
+      <a class="nav-brand" href="${assetPrefix}index.html">
+        <img src="${assetPrefix}img/logo.png" alt="DisCor">
         <span>Catálogo</span>
       </a>
     </div>
@@ -838,14 +838,14 @@ ${cards}
     <div class="wrap">
       <div class="footer-inner">
         <div class="footer-brand">
-          <img src="../img/logo.png" alt="DisCor">
+          <img src="${assetPrefix}img/logo.png" alt="DisCor">
           <p>Distribuidor mayorista de autopartes y cerrajería en Córdoba.</p>
         </div>
         <nav class="footer-links">
-          <a href="../index.html">Inicio</a>
+          <a href="${assetPrefix}index.html">Inicio</a>
           <a href="https://clientes.discor.com.ar" target="_blank" rel="noopener">Área Clientes</a>
           <a href="https://wa.me/5493517638778" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="../terms.html">Términos</a>
+          <a href="${assetPrefix}terms.html">Términos</a>
         </nav>
       </div>
       <hr class="footer-hr">
