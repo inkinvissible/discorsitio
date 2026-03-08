@@ -62,15 +62,57 @@ async function main() {
   const usedFileNames = new Set();
   const generatedPages = [];
 
-  for (const product of products) {
-    const pageData = mapProductToTemplateData(product, {
-      baseUrl: siteUrl,
-      imageBaseUrl,
-      outputOverride: args.output,
-      usedFileNames
-    });
+  const pageDataList = products.map(product => mapProductToTemplateData(product, {
+    baseUrl: siteUrl,
+    imageBaseUrl,
+    outputOverride: args.output,
+    usedFileNames
+  }));
 
-    const html = renderTemplate(template, pageData.templateValues);
+  const categoryMap = {};
+  for (const pd of pageDataList) {
+    const cat = pd.pageMeta.category || "General";
+    if (!categoryMap[cat]) categoryMap[cat] = [];
+    categoryMap[cat].push(pd);
+  }
+
+  for (const pageData of pageDataList) {
+    const cat = pageData.pageMeta.category || "General";
+    const sameCat = categoryMap[cat] || [];
+    const related = sameCat.filter(p => p.pageMeta.id !== pageData.pageMeta.id).slice(0, 4);
+
+    let relatedHtml = "";
+    if (related.length > 0) {
+      const cards = related.map(p => `
+        <a href="./${escapeAttr(p.fileName)}" class="related-card">
+           <div class="related-img"><img src="${escapeAttr(p.pageMeta.imageUrl)}" alt="${escapeAttr(p.pageMeta.title)}" onerror="this.parentNode.style.display='none'"></div>
+           <div class="related-info">
+             <p class="related-sku">SKU ${escapeHtml(p.pageMeta.sku)}</p>
+             <h3 class="related-title">${escapeHtml(p.pageMeta.title)}</h3>
+           </div>
+        </a>`).join("");
+      relatedHtml = `
+        <style>
+          .related-section { margin-top: 2.5rem; }
+          .related-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--ink); }
+          .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+          .related-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; text-decoration: none; }
+          .related-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,43,16,0.08); border-color: #b7d9c6; }
+          .related-img { height: 140px; background: #eef8f2; overflow: hidden; display:flex; align-items:center; justify-content:center; }
+          .related-img img { width: 100%; height: 100%; object-fit: cover; }
+          .related-info { padding: 1.1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+          .related-sku { font-size: 0.75rem; color: var(--muted); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin: 0; }
+          .related-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin: 0; }
+        </style>
+        <section class="related-section" aria-labelledby="related-title">
+          <h2 id="related-title">Productos Relacionados</h2>
+          <div class="related-grid">${cards}</div>
+        </section>
+      `;
+    }
+
+    const finalValues = Object.assign({}, pageData.templateValues, { RELATED_PRODUCTS_SECTION: relatedHtml });
+    const html = renderTemplate(template, finalValues);
     const filePath = path.join(outputDir, pageData.fileName);
     await writeFile(filePath, html, "utf8");
 
@@ -83,6 +125,13 @@ async function main() {
     const productIndexPath = path.join(outputDir, "index.html");
     await writeFile(productIndexPath, productIndexHtml, "utf8");
     console.log(`Generated ${path.relative(rootDir, productIndexPath)}`);
+
+    const sitemapHtml = renderHtmlSitemap(generatedPages, siteUrl);
+    const sitemapHtmlPath = path.join(outputDir, "sitemap.html");
+    await writeFile(sitemapHtmlPath, sitemapHtml, "utf8");
+    console.log(`Generated ${path.relative(rootDir, sitemapHtmlPath)}`);
+
+    await generateCategoryPages(generatedPages, siteUrl, outputDir);
 
     const sitemapXml = renderSitemapXml(generatedPages, siteUrl);
     await writeFile(sitemapPath, sitemapXml, "utf8");
@@ -559,7 +608,7 @@ function renderSearchIndex(pages) {
   return JSON.stringify(entries);
 }
 
-function renderProductIndexPage(pages, siteUrl) {
+function renderProductIndexPage(pages, siteUrl, categoryName = null) {
   const sorted = pages.slice().sort((a, b) => a.title.localeCompare(b.title, "es"));
 
   // Build vehicle brand → models map
@@ -599,6 +648,7 @@ function renderProductIndexPage(pages, siteUrl) {
   const cards = sorted.map((page) => {
     const compatJson = escapeAttr(JSON.stringify(page.vehicleCompat ?? []));
     const imgUrl = page.imageUrl ?? "";
+    const href = categoryName ? `../${escapeAttr(page.fileName)}` : `./${escapeAttr(page.fileName)}`;
     return [
       `<article class="card" data-name="${escapeAttr(page.title.toLowerCase())}"`,
       `data-sku="${escapeAttr(page.sku.toLowerCase())}"`,
@@ -607,10 +657,10 @@ function renderProductIndexPage(pages, siteUrl) {
       `data-compat="${compatJson}">`,
       `<div class="card-img"><img src="${escapeAttr(imgUrl)}" alt="${escapeAttr(page.title)}" loading="lazy" onerror="${cardImgOnerror}"></div>`,
       `<p class="sku">SKU ${escapeHtml(page.sku)}</p>`,
-      `<h2><a href="./${escapeAttr(page.fileName)}">${escapeHtml(page.title)}</a></h2>`,
+      `<h2><a href="${href}">${escapeHtml(page.title)}</a></h2>`,
       `<p class="desc">${escapeHtml(page.description)}</p>`,
       `<div class="card-meta"><span class="pill">${escapeHtml(page.brand)}</span><span class="pill">${escapeHtml(page.category)}</span></div>`,
-      `<a class="card-link" href="./${escapeAttr(page.fileName)}">Ver ficha →</a>`,
+      `<a class="card-link" href="${href}">Ver ficha →</a>`,
       "</article>"
     ].join(" ");
   }).join("\n");
@@ -622,16 +672,20 @@ function renderProductIndexPage(pages, siteUrl) {
   const brandModelsJson = JSON.stringify(brandModels).replaceAll("</script", "<\\/script");
   const modelYearsJson = JSON.stringify(modelYears).replaceAll("</script", "<\\/script");
 
+  const pageTitle = categoryName ? `Repuestos de ${escapeHtml(categoryName)} | DisCor Mayorista` : 'Catálogo de Autopartes y Cerrajería | DisCor Mayorista';
+  const pageDescription = categoryName ? `Catálogo mayorista de ${escapeHtml(categoryName)}. Repuestos, autopartes y cerrajería con compatibilidades por vehículo.` : 'Catálogo mayorista de autopartes, cerrajería y accesorios con compatibilidades por vehículo. DisCor — Córdoba.';
+  const assetPrefix = categoryName ? '../../' : '../';
+
   return `<!doctype html>
 <html lang="es-AR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo de Autopartes y Cerrajería | DisCor Mayorista</title>
-  <meta name="description" content="Catálogo mayorista de autopartes, cerrajería y accesorios con compatibilidades por vehículo. DisCor — Córdoba.">
+  <title>${pageTitle}</title>
+  <meta name="description" content="${pageDescription}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${escapeAttr(`${siteUrl}/products/`)}">
-  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="${assetPrefix}img/favicon-32x32.png">
   <style>
     @font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-300.woff2') format('woff2'); }
     @font-face { font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:local(''),url('../fonts/inter-v12-latin-700.woff2') format('woff2'); }
@@ -797,6 +851,10 @@ ${cards}
       <hr class="footer-hr">
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> DisCor. Todos los derechos reservados.</span>
+        <div>
+          <a href="${assetPrefix}products/sitemap.html">Mapa del Sitio</a> |
+          <a href="${assetPrefix}terms.html">Términos y Condiciones</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1129,4 +1187,38 @@ function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+}
+
+
+async function generateCategoryPages(generatedPages, siteUrl, outputDir) {
+  const categories = [...new Set(generatedPages.map((p) => p.category))];
+  const catDir = require('path').join(outputDir, "category");
+  await require('node:fs/promises').mkdir(catDir, { recursive: true });
+
+  for (const cat of categories) {
+    if (!cat || cat === "Sin categoría") continue;
+    const slug = slugify(cat);
+    const catPages = generatedPages.filter(p => p.category === cat);
+    const catHtml = renderProductIndexPage(catPages, siteUrl, cat);
+    const catPath = require('path').join(catDir, slug + ".html");
+    await require('node:fs/promises').writeFile(catPath, catHtml, "utf8");
+    console.log("Generated " + require('path').relative(process.cwd(), catPath));
+  }
+}
+
+function renderHtmlSitemap(pages, siteUrl) {
+  const categories = {};
+  for (const p of pages) {
+    const c = p.category || "Otros";
+    if (!categories[c]) categories[c] = [];
+    categories[c].push(p);
+  }
+
+  const catBlocks = Object.keys(categories).sort().map(cat => {
+    const slug = slugify(cat);
+    const links = categories[cat].map(p => "<li><a href=\"./" + escapeHtml(p.fileName) + "\">" + escapeHtml(p.title) + "</a></li>").join("");
+    return "<section style=\"margin-bottom: 2rem;\">\n<h2><a href=\"./category/" + escapeHtml(slug) + ".html\" style=\"color: #00ac41; text-decoration: none;\">" + escapeHtml(cat) + "</a></h2>\n<ul style=\"list-style: none; padding-left: 0; line-height: 1.6;\">\n" + links + "\n</ul>\n</section>";
+  }).join("");
+
+  return "<!doctype html>\n<html lang=\"es-AR\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Mapa del Sitio | DisCor Mayorista</title>\n  <meta name=\"description\" content=\"Mapa del sitio del catálogo de autopartes y cerrajería. DisCor — Córdoba.\">\n  <meta name=\"robots\" content=\"index, follow\">\n  <style>\n    body { font-family: 'Segoe UI', sans-serif; color: #111814; background: #f8fcfa; padding: 2rem; }\n    h1 { color: #006024; }\n    a { color: #5a6b61; text-decoration: none; }\n    a:hover { color: #00ac41; text-decoration: underline; }\n    .wrap { max-width: 1000px; margin: 0 auto; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <h1>Mapa del Sitio - Catálogo DisCor</h1>\n    <p><a href=\"../index.html\">← Volver al inicio</a> | <a href=\"./index.html\">Ver catálogo interactivo</a></p>\n    " + catBlocks + "\n  </div>\n</body>\n</html>";
 }
